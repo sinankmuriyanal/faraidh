@@ -14,7 +14,7 @@
 #preloader{
   background: rgb(247, 247, 247) url(ZZ5H.gif) no-repeat center center;
   background-size: 60%;
-  height:100vh;
+  height:20vh;
   width:100%;
   position:fixed; 
   z-index:100;
