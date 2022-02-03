@@ -1,0 +1,61 @@
+  <section id="features" class="features"></section>
+   <section id="values" class="values">
+
+      <div class="container" data-aos="fade-up">
+
+        <header class="section-header">
+          
+          <p>Faraid Calculator Result</p>
+        </header>
+  <div class="all">
+ <form action="/tryagain" method="post" enctype="multipart/form-data">
+                    
+
+    
+    
+        
+           
+             <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Number</th>
+                    <th scope="col">share</th>
+                    <th scope="col">fraction</th>
+                  </tr>
+                </thead>
+                <tbody>
+                     {{#each items}}
+                      {{#if isdefined}}
+                  <tr>
+                    <th scope="row">{{this.name}}</th>
+                    <td>{{this.number}}</td>
+                    <td>{{this.share}} %</td>
+                    <td>{{this.fraction}}</td>
+                  </tr>
+                   {{/if}}
+                  {{/each}}
+                  <tr>
+                    <th scope="row"></th>
+                    <td></td>
+                    <td>{{getstotal}}</td>
+                    <td{{gettotal}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            
+         
+            
+   
+
+
+                <button id="btn3" type="submit" class="btn btn-success mt-4">try again</button>
+                </form>
+                </div>
+        
+
+      </div>
+
+    </section><!-- End F.A.Q Section -->
+    <section id="features" class="features"></section>
+    <section id="features" class="features"></section>
