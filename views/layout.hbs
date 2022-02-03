@@ -42,6 +42,7 @@
 
   </head>
   <body>
+    <div id="preloader"></div>
     <header id="header" class="header fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
@@ -150,5 +151,16 @@
 
   <!-- Template Main JS File -->
   <script src="/js/main.js"></script>
+  <script>
+
+        var loader = document.getElementById("preloader");
+
+        window.addEventListener("load", function(){
+            loader.style.display = "none";
+        })
+
+
+    </script>
+
   </body>
 </html>

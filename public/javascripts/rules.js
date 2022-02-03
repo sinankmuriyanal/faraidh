@@ -107,6 +107,7 @@ module.exports={
             }
         }
         
+        
         if(number.son==0) {
             if(number.daughter==1) {
                 daughtergets=50;

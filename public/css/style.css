@@ -11,7 +11,15 @@
   scroll-behavior: smooth;
 }
 
+#preloader{
+  background: rgb(247, 247, 247) url(ZZ5H.gif) no-repeat center center;
+  background-size: 60%;
+  height:100vh;
+  width:100%;
+  position:fixed; 
+  z-index:100;
 
+}
 .name {
   color: rgb(10, 10, 10);
   font-size:x-large;
@@ -22,11 +30,13 @@
 }
 .input{
   margin-left:80px;
-   width: 60px;
+   width:60px;
    font-size:x-large;
    float: right;
    margin-top: 10px;
-   
+   align-items: center;
+   align-content: center;
+   align-self: center;
 }
 body {
   font-family: "Open Sans", sans-serif;
