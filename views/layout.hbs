@@ -11,8 +11,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="/img/favicon.png" rel="icon">
-  <link href="/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="/images/icon.jpg" rel="icon">
+  
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -43,37 +43,82 @@
   </head>
   <body>
     <div id="preloader"></div>
-    <header id="header" class="header fixed-top">
+<header id="header" class="header fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a href="/" class="logo d-flex align-items-center">
         <img src="/img/logo.png" alt="">
         <span>AlFaraidh</span>
       </a>
 
       <nav id="navbar" class="navbar">
         <ul>
+          {{#if home}}
           <li><a class="nav-link scrollto active" href="/">Home</a></li>
+          {{else}}
+          <li><a class="nav-link scrollto " href="/">Home</a></li>
+          {{/if}}
+
+
+          {{#if calculator}}
+          <li><a class="nav-link scrollto active" href="/calculator">Calculator</a></li>
+          {{else}}
           <li><a class="nav-link scrollto" href="/calculator">Calculator</a></li>
-          <li><a class="nav-link scrollto" href="/articles">Articles</a></li>
-   
-           <li><a class="nav-link scrollto" href="/faq">F.A.Q</a></li>
-          <li><a class="nav-link scrollto" href="/contact-us">Contact</a></li>
+          {{/if}}
+
+          {{#if rules}}
+          <li><a class="nav-link scrollto active " href="/rules">Rules</a></li>
+          {{else}}
+        <li><a class="nav-link scrollto" href="/rules">Rules</a></li>
+          {{/if}}
+
+
+          {{#if articles}}
+           <li><a class="nav-link scrollto active" href="/articles">Articles</a></li>
+          {{else}}
+         <li><a class="nav-link scrollto" href="/articles">Articles</a></li>
+          {{/if}}
+
+
+          {{#if faq}}
+             <li><a class="nav-link scrollto active" href="/faq">F.A.Q</a></li>
+          {{else}}
+             <li><a class="nav-link scrollto" href="/faq">F.A.Q</a></li>
+          {{/if}}
+
+
+          {{#if contact}}
+          <li><a class="nav-link scrollto active " href="/contact-us">Contact</a></li>
+          {{else}}
+        <li><a class="nav-link scrollto" href="/contact-us">Contact</a></li>
+          {{/if}}
+        
           <li><a class="getstarted scrollto" href="/calculator">Get Started</a></li>
+
+          
+
+         
         </ul>
         <i class="bi bi-list mobile-nav-toggle">
 
         </i>
-        <a href="#" class="mobile-menu-toggle">
-                            <i class="bi bi-list mobile-nav-toggle"></i>
-        </a>
+      {{!-- <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span> --}}
       </nav><!-- .navbar -->
 
     </div>
   </header><!-- End Header -->
-<main id="main">
+   
+ {{!-- <div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#">About</a>
+  <a href="#">Services</a>
+  <a href="#">Clients</a>
+  <a href="#">Contact</a>
+</div> --}}
+    
+
     {{{body}}}
-    </main>
+    
 <footer id="footer" class="footer">
 
     
@@ -136,10 +181,10 @@
       <div class="copyright">
         &copy; Copyright <strong><span>FlexStart</span></strong>. All Rights Reserved
       </div>
-     >
+     
     </div>
   </footer><!-- End Footer -->
-
+</div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
   <script src="/vendor/purecounter/purecounter.js"></script>
   <script src="/vendor/aos/aos.js"></script>
@@ -161,6 +206,19 @@
 
 
     </script>
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+  document.body.style.backgroundColor = "white";
+}
+</script>
 
   </body>
 </html>

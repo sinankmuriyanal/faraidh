@@ -19,11 +19,11 @@ const promise=require("promise");
 /* GET home page. */
 router.get('/', (req, res, next) => {
   
-  res.render('index');
+  res.render('index',{home:true});
 
 });
 router.get('/calculator',(req,res,next) =>{
-  res.render("calculator")
+  res.render("calculator",{calculator:true})
 })
 
 
@@ -33,7 +33,7 @@ router.post("/result",function(req,res){
     var result=rules.divide(req.body)
       //console.log(result)
     var getstotal=result.getstotal;
-  
+    var exp=result.exp;
     function isdefined(value){
      return value != 0; 
     }
@@ -75,22 +75,30 @@ router.post("/result",function(req,res){
         }
       });
     //return {items,getstotal}
-  res.render("result", {items,getstotal});
+  res.render("result", {items,getstotal,exp});
   })
 
 router.post('/tryagain',function(req,res){
   res.redirect('/calculator');
 })
 router.get("/faq",(req,res)=>{
-  res.render("faq")
+  res.render("faq",{faq:true})
 })
 
 router.get("/contact-us",(req,res)=>{
-  res.render("contact-us")
+  res.render("contact-us",{contact:true})
 })
 
 router.get("/articles",(req,res)=>{
-  res.render("articles")
+  res.render("articles",{articles:true})
+})
+
+router.get("/rules",(req,res)=>{
+  res.render("rules",{rules:true})
+})
+
+router.get("/rules/whoAreEligible",(req,res)=>{
+  res.render("whoAreEligible")
 })
 
 module.exports = router;

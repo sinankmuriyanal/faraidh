@@ -7,7 +7,9 @@ module.exports={
         
             resolve(name)
         })*/
-        var name=["father","mother","son","daughter","husband","wife","fullBrother","fullSister","grandSon","grandDaughter","grandFather","grandMother","paternalBrother","paternalSister","maternalBrother","maternalSister",];
+        var name=["FATHER","MOTHER","SON","DAUGHTER","HUSBAND","WIFE","FULLBROTHER","FULLSISTER","GRANDSON","GRANDDAUGHTER","GRANDFATHER","GRANDMOTHER","PATERNALBROTHER","PATERNALSISTER","MATERNALBROTHER","MATERNALSISTER",];
+
+
         
             return(name)
         

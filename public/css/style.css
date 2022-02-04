@@ -10,14 +10,51 @@
 :root {
   scroll-behavior: smooth;
 }
+body {
+  font-family: "Lato", sans-serif;
+}
 
+.sidenav {
+  height: 100%;
+  width: 300px;
+  position: fixed;
+  z-index: 1;
+  top: 90px;
+  left: 0;
+  background-color: rgb(21, 22, 88);
+  overflow-x: hidden;
+  padding-top: 20px;
+  padding-right: 20%;
+}
+
+.sidenav a {
+  padding: 6px 6px 6px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #fdfcfc;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: rgb(199, 0, 0);
+}
+
+.main {
+  margin-left: 200px; /* Same as the width of the sidenav */
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
 #preloader{
-  background: rgb(247, 247, 247) url(ZZ5H.gif) no-repeat center center;
-  background-size: 60%;
-  height:20vh;
+  background: rgb(255, 255, 255) url(ZZ5H.gif) no-repeat center center;
+  background-size: 10%;
+  height:100vh;
   width:100%;
-  position:fixed; 
+  position:fixed;
   z-index:100;
+  
 
 }
 .name {
