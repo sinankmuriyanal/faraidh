@@ -44,67 +44,77 @@
   <body>
     <div id="preloader"></div>
 <header id="header" class="header fixed-top">
-    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+    
 
-      <a href="/" class="logo d-flex align-items-center">
+      
+      
+      <nav id="navbar" class="navbar navbar-expand-lg ">
+        <a href="/" class="logo d-flex align-items-center">
         <img src="/img/logo.png" alt="">
         <span>AlFaraidh</span>
       </a>
-
-      <nav id="navbar" class="navbar">
-        <ul>
+       <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse2">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        <div class="container-fluid container-xl d-flex align-items-center justify-content-between"></div>
+        <div class="container-fluid">
+          
+         
+          <div class="collapse navbar-collapse" id="navbarCollapse2">
+                <div class="navbar-nav">
           {{#if home}}
-          <li><a class="nav-link scrollto active" href="/">Home</a></li>
+          <a class="nav-link scrollto active" href="/">Home</a>
           {{else}}
-          <li><a class="nav-link scrollto " href="/">Home</a></li>
+          <a class="nav-link scrollto " href="/">Home</a>
           {{/if}}
 
 
           {{#if calculator}}
-          <li><a class="nav-link scrollto active" href="/calculator">Calculator</a></li>
+          <a class="nav-link scrollto active" href="/calculator">Calculator</a>
           {{else}}
-          <li><a class="nav-link scrollto" href="/calculator">Calculator</a></li>
+          <a class="nav-link scrollto" href="/calculator">Calculator</a>
           {{/if}}
 
           {{#if rules}}
-          <li><a class="nav-link scrollto active " href="/rules">Rules</a></li>
+          <a class="nav-link scrollto active " href="/rules">Rules</a>
           {{else}}
-        <li><a class="nav-link scrollto" href="/rules">Rules</a></li>
+        <a class="nav-link scrollto" href="/rules">Rules</a>
           {{/if}}
 
 
           {{#if articles}}
-           <li><a class="nav-link scrollto active" href="/articles">Articles</a></li>
+           <a class="nav-link scrollto active" href="/articles">Articles</a>
           {{else}}
-         <li><a class="nav-link scrollto" href="/articles">Articles</a></li>
+         <a class="nav-link scrollto" href="/articles">Articles</a>
           {{/if}}
 
 
           {{#if faq}}
-             <li><a class="nav-link scrollto active" href="/faq">F.A.Q</a></li>
+             <a class="nav-link scrollto active" href="/faq">F.A.Q</a>
           {{else}}
-             <li><a class="nav-link scrollto" href="/faq">F.A.Q</a></li>
+             <a class="nav-link scrollto" href="/faq">F.A.Q</a>
           {{/if}}
 
 
           {{#if contact}}
-          <li><a class="nav-link scrollto active " href="/contact-us">Contact</a></li>
+          <a class="nav-link scrollto active " href="/contact-us">Contact</a>
           {{else}}
-        <li><a class="nav-link scrollto" href="/contact-us">Contact</a></li>
+      <a class="nav-link scrollto" href="/contact-us">Contact</a>
           {{/if}}
         
-          <li><a class="getstarted scrollto" href="/calculator">Get Started</a></li>
+          <a class="getstarted scrollto" href="/calculator">Get Started</a>
 
           
 
          
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle">
+       
+        <i class=" mobile-nav-toggle">
 
         </i>
-      {{!-- <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span> --}}
-      </nav><!-- .navbar -->
-
+        </div>
+      
+      </nav>
+  </div>
     </div>
   </header><!-- End Header -->
    
