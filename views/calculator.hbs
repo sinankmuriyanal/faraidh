@@ -88,7 +88,16 @@
             {{#each relatives}}
             {{#if first}}
               <label class="name" for="product_name" >{{this.name}}</label>
+             
+            {{#if one}}
+              <input type="number" class="input"  id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0" max="1" value="0">
+              {{/if}}
+            {{#if four}}
+              <input type="number" class="input"  id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0" max="4" value="0">
+              {{/if}}
+            {{#if none}}
               <input type="number" class="input"  id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0"  value="0">
+              {{/if}}
             {{/if}}
             {{/each}}
 
@@ -138,7 +147,13 @@
             {{#if second}}
              <label class="name" for="product_name" >{{this.name}}</label>
             
-            <input type="number" class="input2"  id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0"  value="0">
+             {{#if one}}
+              <input type="number" class="input"  id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0" max="1" value="0">
+              {{/if}}
+            
+            {{#if none}}
+              <input type="number" class="input"  id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0"  value="0">
+              {{/if}}
             {{/if}}
             {{/each}}
               {{!-- <label class="name" for="product_name" >Grandson</label>
@@ -165,7 +180,7 @@
             {{#each relatives}}
             {{#if third}}
              <label class="name" for="product_name" >{{this.name}}</label>
-              
+            
             <input type="number" class="input" id="{{this.input}}"  name="{{this.input}}" placeholder="0" min="0"  value="0">
             {{/if}}
             {{/each}}

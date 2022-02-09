@@ -43,6 +43,18 @@ router.get('/calculator',(req,res,next) =>{
     return value >= 17 && value <=24; 
    }
 
+   function isone(value){
+    return value == "father" || value =="mother" || value == "grandFather" || value == "grandMother" || value == "grandMother2" || value == "husband" ; 
+   }
+
+   function isfour(value){
+    return value == "wife" ; 
+   }
+
+   function isnone(value){
+     return value != "father" && value != "mother" && value != "grandFather" && value != "grandMother" && value != "grandMother2" && value != "husband" && value != "wife" ; 
+   }
+
   var no=[]
   for(i=0;i<23;i++){
     no.push(i+1)
@@ -59,6 +71,18 @@ router.get('/calculator',(req,res,next) =>{
   for(let i=0;i<25;i++){
     third.push(isthird(no[i]));
   }
+  var one=[];
+  for (let i = 0; i <25; i++) {
+   one.push(isone(input[i])) 
+  }
+  var four=[];
+  for (let i = 0; i <25; i++) {
+   four.push(isfour(input[i])) 
+  }
+  var none=[];
+  for (let i = 0; i <25; i++) {
+   none.push(isnone(input[i])) 
+  }
 
   var relatives = name.map((name, index) => {
     return {
@@ -67,7 +91,10 @@ router.get('/calculator',(req,res,next) =>{
       NO:no[index],
       first:first[index],
       second:second[index],
-      third:third[index]
+      third:third[index],
+      one:one[index],
+      four:four[index],
+      none:none[index]
     }
   });
   //  console.log(relatives);
@@ -163,6 +190,11 @@ router.get("/rules",(req,res)=>{
 
 router.get("/rules/whoAreEligible",(req,res)=>{
   res.render("whoAreEligible")
+})
+
+router.post("/contact-us",(req,res)=>{
+  res.render("contact-us",{message:"thank you for your feedback"})
+  console.log(req.body);
 })
 
 module.exports = router;
