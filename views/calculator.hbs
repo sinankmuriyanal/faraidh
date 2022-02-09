@@ -56,8 +56,9 @@
                 <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="500">
                   <i class="ri-radar-line"></i>
                   <div>
-                    <h4>Any Doubts, Contact us...</h4>
-                    <p>Feel free to contact us to clear your doubts</p>
+                    <h4>These are the only eligible relatives</h4>
+                    <p>The relatives shown below are the only eligible relatives for inheritance, others only get the 
+                      inheritance if none of these relatives (other than husband and wife) are alive</p>
                   </div>
                 </div>
 
@@ -83,15 +84,37 @@
         <div class="row">
           
 
-          <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="200">
-             <label class="name" for="product_name" >Father</label>
-            <input type="number" class="input"   name="father" placeholder="0" min="0" max="1" value="0">
+          <div class="col-lg-4 mt-6 mt-lg-0" data-aos="fade-up" data-aos-delay="200">
+            {{#each relatives}}
+            {{#if first}}
+              <label class="name" for="product_name" >{{this.name}}</label>
+              <input type="number" class="input"  id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0" max="1" value="0">
+            {{/if}}
+            {{/each}}
+
+            
+
+              {{!-- <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-1">
+                    <label class="name" for="product_name" >Father</label>
+                  </button>
+                </h2>
+            <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
+                  <div class="accordion-body">
+                    only the real father, no stepdad 
+                  </div>
+                </div>
+           <input type="number" class="input"   name="father" placeholder="0" min="0" max="1" value="0">
+          
 
              <label class="name" for="product_name" >Mother</label>
            <input type="number" class="input"   name="mother" placeholder="0" min="0" max="1" value="0">
+          <button ">+</button>
+              <button >-</button>
 
              <label class="name" for="product_name" >Son</label>
            <input type="number" class="input"   name="son" placeholder="0" min="0" value="0">
+          
 
               <label class="name" for="product_name">Daughter</label>
            <input type="number" class="input"   name="daughter" placeholder="0" min="0"  value="0">
@@ -107,53 +130,81 @@
 
              <label class="name" for="product_name" >Full Sister</label>
            <input type="number" class="input"   name="fullSister" placeholder="0" min="0" value="0">
-          
-          </div>
+          --}}
+          </div> 
 
-          <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="400">
-              <label class="name" for="product_name" >G.son</label>
+          <div class="col-lg-4 mt-6 mt-lg-0" data-aos="fade-up" data-aos-delay="400">
+            {{#each relatives}}
+            {{#if second}}
+             <label class="name" for="product_name" >{{this.name}}</label>
+            
+            <input type="number" class="input2"  id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0" max="1" value="0">
+            {{/if}}
+            {{/each}}
+              {{!-- <label class="name" for="product_name" >Grandson</label>
            <input type="number" class="input"   name="grandSon" placeholder="0" min="0" value="0">
-             <label class="name" for="product_name" >G.daughter</label>
+             <label class="name" for="product_name" >Granddaughter</label>
            <input type="number" class="input"   name="grandDaughter" placeholder="0" min="0" value="0">
-             <label class="name" for="product_name" >G.father</label>
+             <label class="name" for="product_name" >Grandfather</label>
            <input type="number" class="input"   name="grandFather" placeholder="0" min="0"  value="0">
-             <label class="name" for="product_name" >G.mother</label>
+             <label class="name" for="product_name" >Grandmother</label>
            <input type="number" class="input"   name="grandMother" placeholder="0" min="0" value="0">
-              <label class="name" for="product_name" >Brother</label>
+            <label class="name" for="product_name" >Grandmother2</label>
+           <input type="number" class="input"   name="grandMother2" placeholder="0" min="0" max="1" value="0">
+              <label class="name" for="product_name" >MaternalBrother</label>
            <input type="number" class="input"   name="maternalBrother" placeholder="0" min="0" value="0">
-             <label class="name" for="product_name" >Sister</label>
+             <label class="name" for="product_name" >MaternalSister</label>
            <input type="number" class="input"   name="maternalSister" placeholder="0" min="0" value="0">
-             <label class="name" for="product_name" >Brother</label>
+             <label class="name" for="product_name" >PaternalBrother</label>
            <input type="number" class="input"   name="paternalBrother" placeholder="0" min="0"  value="0">
-             <label class="name" for="product_name" > Sister</label>
-           <input type="number" class="input"   name="paternalSister" placeholder="0" min="0"  value="0">
+             --}}
           
           </div>
 
           <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="600">
-              <label class="name" for="product_name" >Father</label>
-           <input type="number" class="input"   name="father" placeholder="0" min="0" max="1" value="0">
-             <label class="name" for="product_name" >Father</label>
-           <input type="number" class="input"   name="father" placeholder="0" min="0" max="1" value="0">
-             <label class="name" for="product_name" >Father</label>
-           <input type="number" class="input"   name="father" placeholder="0" min="0" max="1" value="0">
-             <label class="name" for="product_name" >Father</label>
-           <input type="number" class="input"   name="father" placeholder="0" min="0" max="1" value="0">
-              <label class="name" for="product_name" >Father</label>
-           <input type="number" class="input"   name="father" placeholder="0" min="0" max="1" value="0">
-             <label class="name" for="product_name" >Father</label>
-           <input type="number" class="input"   name="father" placeholder="0" min="0" max="1" value="0">
-             <label class="name" for="product_name" >Father</label>
-           <input type="number" class="input"   name="father" placeholder="0" min="0" max="1" value="0">
-             <label class="name" for="product_name" >Father</label>
-           <input type="number" class="input"   name="father" placeholder="0" min="0" max="1" value="0">
+            {{#each relatives}}
+            {{#if third}}
+             <label class="name" for="product_name" >{{this.name}}</label>
+              
+            <input type="number" class="input" id="{{this.input}}"  name="{{this.input}}" placeholder="0" min="0" max="1" value="0">
+            {{/if}}
+            {{/each}}
+              {{!-- <label class="name" for="product_name" > PaternalSister</label>
+           <input type="number" class="input"   name="paternalSister" placeholder="0" min="0"  value="0">
+             <label class="name" for="product_name" >Nephew2</label>
+           <input type="number" class="input"   name="nephew2" placeholder="0" min="0" max="1" value="0">
+             <label class="name" for="product_name" >Nephew1</label>
+           <input type="number" class="input"   name="nephew1" placeholder="0" min="0" max="1" value="0">
+             <label class="name" for="product_name" >Uncle2</label>
+           <input type="number" class="input"   name="uncle2" placeholder="0" min="0" max="1" value="0">
+              <label class="name" for="product_name" >Uncle1</label>
+           <input type="number" class="input"   name="uncle1" placeholder="0" min="0" max="1" value="0">
+             <label class="name" for="product_name" >Cousin2</label>
+           <input type="number" class="input"   name="cousin2" placeholder="0" min="0" max="1" value="0">
+             <label class="name" for="product_name" >Cousin1</label>
+           <input type="number" class="input"   name="cousin1" placeholder="0" min="0" max="1" value="0"> --}}
+             {{!-- <input id="demoInput" type="number">
+            <button onclick="increment()">+</button>
+              <button onclick="decrement()">-</button> --}}
           
 
           
         </div>
-        <button  id="btn" type="submit" class="btn btn-success mt-4">Submit</button>
+        <button  id="btn" type="submit" style="background-color: rgb(21, 22, 88);color: white; font-weight: 800;" class="btn  mt-4">Submit</button>
         </form>
 
       </div>
 
     </section><!-- End Values Section -->
+     {{#each relatives}}
+    <script>
+    
+   function increment() {
+      document.getElementById("mother").stepUp();
+   }
+   function decrement() {
+      document.getElementById("mother").stepDown();
+   }
+   {{/each}}
+    </script>
+    

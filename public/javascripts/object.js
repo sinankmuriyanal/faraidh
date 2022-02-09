@@ -7,11 +7,16 @@ module.exports={
         
             resolve(name)
         })*/
-        var name=["FATHER","MOTHER","SON","DAUGHTER","HUSBAND","WIFE","FULLBROTHER","FULLSISTER","GRANDSON","GRANDDAUGHTER","GRANDFATHER","GRANDMOTHER","PATERNALBROTHER","PATERNALSISTER","MATERNALBROTHER","MATERNALSISTER",];
+        var name=["FATHER","MOTHER","SON","DAUGHTER","HUSBAND","WIFE","FULLBROTHER","FULLSISTER","GRANDSON",
+        "GRANDDAUGHTER","GRANDFATHER","GRANDMOTHER","GRANDMOTHER2","PATERNALBROTHER","PATERNALSISTER",
+        "MATERNALBROTHER","MATERNALSISTER","NEPHEW2","NEPHEW1","UNCLE2","UNCLE1","COUSIN2","COUSIN1"];
 
+        var input=["father","mother","son","daughter","husband","wife","fullBrother","fullSister","grandSon",
+        "grandDaughter","grandFather","grandMother","grandMother2","paternalBrother","paternalSister",
+        "maternalBrother","maternalSister","nephew2","nephew1","uncle2","uncle1","cousin2","cousin1"]
 
         
-            return(name)
+            return({name,input})
         
     },
     numbers:(relatives,callback)=>{

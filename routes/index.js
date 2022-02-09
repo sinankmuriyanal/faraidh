@@ -16,6 +16,7 @@ const promise=require("promise");
 
 
 
+
 /* GET home page. */
 router.get('/', (req, res, next) => {
   
@@ -23,21 +24,73 @@ router.get('/', (req, res, next) => {
 
 });
 router.get('/calculator',(req,res,next) =>{
-  res.render("calculator",{calculator:true})
+  let names=object.musamma()
+  var name=names.name
+  var input=names.input;
+
+ 
+
+  function isfirst(value){
+    return value <= 8; 
+   }
+
+   function issecond(value){
+    return value >= 9 && value <=16; 
+   }
+   
+
+   function isthird(value){
+    return value >= 17 && value <=24; 
+   }
+
+  var no=[]
+  for(i=0;i<23;i++){
+    no.push(i+1)
+  }
+  var first=[];
+  for(let i=0;i<25;i++){
+    first.push(isfirst(no[i]));
+  }
+  var second=[];
+  for(let i=0;i<25;i++){
+    second.push(issecond(no[i]));
+  }
+  var third=[];
+  for(let i=0;i<25;i++){
+    third.push(isthird(no[i]));
+  }
+
+  var relatives = name.map((name, index) => {
+    return {
+      name: name,
+      input: input[index],
+      NO:no[index],
+      first:first[index],
+      second:second[index],
+      third:third[index]
+    }
+  });
+  //  console.log(relatives);
+
+  res.render("calculator",{calculator:true,relatives})
 })
 
 
 
 router.post("/result",function(req,res){
-  
+  // console.log(req.body);
     var result=rules.divide(req.body)
       //console.log(result)
+      
+
     var getstotal=result.getstotal;
     var exp=result.exp;
+    
     function isdefined(value){
      return value != 0; 
     }
 
+    
   var father=(req.body.father);
   var mother=(req.body.mother);
   var son=(req.body.son);
@@ -50,21 +103,31 @@ router.post("/result",function(req,res){
   var grandDaughter=(req.body.grandDaughter);
   var grandFather=(req.body.grandFather);
   var grandMother=(req.body.grandMother);
+  var grandMother2=(req.body.grandMother2);
   var paternalBrother=(req.body.paternalBrother);
   var paternalSister=(req.body.paternalSister);
   var maternalBrother=(req.body.maternalBrother);
   var maternalSister=(req.body.maternalSister);
- 
+  var nephew2=(req.body.nephew2);
+  var nephew1=(req.body.nephew1);
+  var uncle2=(req.body.uncle2);
+  var uncle1=(req.body.uncle1);
+  var cousin2=(req.body.cousin2);
+  var cousin1=(req.body.cousin1);
+  
   
   var number=[father,mother,son,daughter,husband,wife,fullBrother,fullSister,
-    grandSon,grandDaughter,grandFather,grandMother,paternalBrother,paternalSister,maternalBrother,maternalSister,]
+    grandSon,grandDaughter,grandFather,grandMother,grandMother2,paternalBrother,
+    paternalSister,maternalBrother,maternalSister,nephew2,nephew1,uncle2,uncle1,
+  cousin2,cousin1]
+  console.log(number);
 
   var array=[];
-  for(let i=0;i<17;i++){
+  for(let i=0;i<25;i++){
     array.push(isdefined(number[i]));
   }
-
-  var name=(object.musamma());
+  var names=object.musamma()
+  var name=(names.name);
   var items = name.map((name, index) => {
         return {
           name: name,
@@ -76,6 +139,7 @@ router.post("/result",function(req,res){
       });
     //return {items,getstotal}
   res.render("result", {items,getstotal,exp});
+  // console.log(items);
   })
 
 router.post('/tryagain',function(req,res){
