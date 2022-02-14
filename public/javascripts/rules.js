@@ -134,7 +134,7 @@ module.exports={
                 exp.push("Wife gets her presribed share of 1/4 as she has no kids")
             }else {
                 wifegets=12.5;
-                exp.push("Daughter gets her presribed share of 1/8 as she has kids" )
+                exp.push("wife gets her presribed share of 1/8 as she has kids" )
             }
         }
         
@@ -181,12 +181,12 @@ module.exports={
             exp.push("Grandfather gets her presribed share of 1/6")
         }
         
-        if(number.daughter==1 && number.grandDaughter>=1){
+        if((number.daughter==1 && number.grandDaughter>=1) &&(number.son==0 && number.grandSon==0)){
             grandDaughtergets= ((1/6)*100);
             exp.push("Granddaughter gets her presribed share of 1/6")
         }
         
-        if(number.fullSister==1 && number.paternalSister>=1){
+        if((number.fullSister==1 && number.paternalSister>=1)&&(number.son==0 && number.daughter==0)){
             if(number.paternalBrother==0){
                 paternalSistergets= ((1/6)*100);
                 exp.push("Paternal sister gets her presribed share of 1/6 being with the full sister")
@@ -212,17 +212,18 @@ module.exports={
                 exp.push("Maternal sister gets her presribed share of 1/3 being more than one")
 
                 }
+            else if(number.maternalBrother>=1 && number.maternalSister>=1){
+            
+                    var maternalSum=(number.maternalBrother)+(number.maternalSister);
+                    maternalBrothergets= (((1/3)*100)/maternalSum)*number.maternalBrother;
+                    maternalSistergets= (((1/3)*100)/maternalSum)*number.maternalSister;
+                    exp.push("Maternal brothers and sisters share the 1/3 between them in the ratio of 1:2")
+        
+                }
         }
             
         
-        if(number.maternalBrother>=1 && number.maternalSister>=1){
-            
-            var maternalSum=(number.maternalBrother)+(number.maternalSister);
-            maternalBrothergets= (((1/3)*100)/maternalSum)*number.maternalBrother;
-            maternalSistergets= (((1/3)*100)/maternalSum)*number.maternalSister;
-            exp.push("Maternal brothers and sisters share the 1/3 between them in the ratio of 1:2")
-
-        }
+        
         
         
         if((number.grandMother==1 && number.mother==0)&& (number.grandMother2==0)){
@@ -735,19 +736,27 @@ if(number.fullSister>=2 && number.paternalSister>=2){
         var cousin1get=nf(cousin1gets/100) 
         // console.log("yes3");
 
+        
+
         var get=[fatherget,motherget,songet,daughterget,husbandget,wifeget,fullBrotherget,fullSisterget,grandSonget,
             grandDaughterget,grandFatherget,grandMotherget,grandMother2get,paternalBrotherget,paternalSisterget,
             maternalBrotherget,maternalSisterget,nephew2get,nephew1get,uncle2get,uncle1get,cousin2get,cousin1get]
+
+        var rupeeget=[];
+        for(let i=0;i<23;i++){
+            rupeeget.push(((gets[i]/100)*number.rupees).toFixed(1));
+          }
+        console.log(rupeeget);
         
         
-            var getstotal=fathergets+mothergets+wifegets+husbandgets+songets+daughtergets+grandFathergets+grandMothergets+grandMother2gets
+        var getstotal=fathergets+mothergets+wifegets+husbandgets+songets+daughtergets+grandFathergets+grandMothergets+grandMother2gets
             +fullSistergets+paternalSistergets+maternalBrothergets+maternalSistergets+grandSongets+grandDaughtergets+
             fullBrothergets+paternalBrothergets+nephew2gets+nephew1gets+uncle2gets+uncle1gets+cousin2gets+cousin1gets;
             getstotal=getstotal.toFixed(1)
-
+        
         //console.log({gets,get,getstotal})
             //callback ({gets,get,getstotal})
-         return ({gets,get,getstotal,exp});
+         return ({gets,get,getstotal,exp,rupeeget});
      }
      }
     

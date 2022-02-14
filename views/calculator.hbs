@@ -81,14 +81,38 @@
           <p>ISLAMIC INHERITANCE CALCULATOR</p>
         </header>
 <form action="/result" method="post" enctype="multipart/form-data">
+
+
         <div class="row">
           
 
           <div class="col-lg-4 mt-6 mt-lg-0" data-aos="fade-up" data-aos-delay="200">
+            
+            {{!-- <label class="name">  name of the deceased</label>
+            <input name="deceased" type="text" style="width: 100%;"> --}}
             {{#each relatives}}
             {{#if first}}
+              
+                {{!-- <h2 class="accordion-header">
+                  <button style="
+  
+  margin-left:40px;
+  font-weight: 400;
+  margin-top: 10px;
+  width: auto;" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#{{this.name}}">
+                   <label class="name" for="product_name" >{{this.name}}</label>
+                  </button>
+                </h2>
+                <div id="{{this.name}}" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
+                  <div class="accordion-body">
+                    {{this.condition}} 
+                  </div>
+                </div>
+               --}}
+               
               <label class="name" for="product_name" >{{this.name}}</label>
-             
+              {{!-- <button onclick="increment()">+</button>
+              <button onclick="decrement()">-</button> --}}
             {{#if one}}
               <input type="number" class="input"  id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0" max="1" value="0">
               {{/if}}
@@ -143,16 +167,36 @@
           </div> 
 
           <div class="col-lg-4 mt-6 mt-lg-0" data-aos="fade-up" data-aos-delay="400">
+            {{!-- <label class="name" >Select your madhhab</label>
+            <select class="custom-select mr-sm-2" name="mother">
+            <option selected>madhhab</option>
+            <option value="hanafi">Hanafi</option>
+            <option value="maliki">Maliki</option>
+            <option value="shafihi">Shafihi</option>
+            <option value="hanbali">Hanbali</option> --}}
+        
+          </select>
             {{#each relatives}}
             {{#if second}}
+             {{!-- <h2 class="accordion-header">
+                  <button style="width: auto; height: auto;" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#{{this.name}}">
+                   <label class="name" for="product_name" >{{this.name}}</label>
+                  </button>
+                </h2>
+                <div id="{{this.name}}" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
+                  <div class="accordion-body">
+                    only the real father, no stepdad 
+                  </div>
+                </div> --}}
+               
              <label class="name" for="product_name" >{{this.name}}</label>
-            
+              
              {{#if one}}
-              <input type="number" class="input"  id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0" max="1" value="0">
+              <input type="number" class="input2"  id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0" max="1" value="0">
               {{/if}}
             
             {{#if none}}
-              <input type="number" class="input"  id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0"  value="0">
+              <input type="number" class="input2"  id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0"  value="0">
               {{/if}}
             {{/if}}
             {{/each}}
@@ -177,13 +221,31 @@
           </div>
 
           <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="600">
-            {{#each relatives}}
-            {{#if third}}
-             <label class="name" for="product_name" >{{this.name}}</label>
             
+            {{#each relatives}}
+            {{#if maternalsister}}
+            <label class="name" for="product_name" >{{this.name}}</label>
+
+              <input type="number" class="input2"  id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0"  value="0">
+              {{/if}}
+            {{#if third}}
+             {{!-- <h2 class="accordion-header">
+                  <button style="width: auto; height: auto;" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#{{this.name}}">
+                   <label class="name" for="product_name" >{{this.name}}</label>
+                  </button>
+                </h2>
+                <div id="{{this.name}}" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
+                  <div class="accordion-body">
+                    only the real father, no stepdad 
+                  </div>
+                </div> --}}
+            <label class="name" for="product_name" >{{this.name}}</label>
+             
             <input type="number" class="input" id="{{this.input}}"  name="{{this.input}}" placeholder="0" min="0"  value="0">
             {{/if}}
             {{/each}}
+            <label class="name"> Total Rupees</label>
+            <input name="rupees" type="number" class="input5">
               {{!-- <label class="name" for="product_name" > PaternalSister</label>
            <input type="number" class="input"   name="paternalSister" placeholder="0" min="0"  value="0">
              <label class="name" for="product_name" >Nephew2</label>
@@ -211,15 +273,27 @@
       </div>
 
     </section><!-- End Values Section -->
-     {{#each relatives}}
-    <script>
     
-   function increment() {
-      document.getElementById("mother").stepUp();
+   
+
+   
+      {{!-- <input id="demoInput" type="number" min=0 max=110 value="0" placeholder="0"> --}}
+      
+        {{!-- {{#each input}} 
+        <p>{{this}}</p>
+<script>
+       function increment() {
+      document.getElementById("father").stepUp();
    }
-   function decrement() {
-      document.getElementById("mother").stepDown();
+        function decrement() {
+      document.getElementById("father").stepDown();
    }
-   {{/each}}
+  
     </script>
+     {{/each}} --}}
+      
+
+  
+
+
     

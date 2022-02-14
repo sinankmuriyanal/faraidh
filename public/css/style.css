@@ -79,6 +79,20 @@ body {
    border-radius: 10px;
    text-align: center;
 }
+.input5{
+  margin-left:90px;
+   width:80px;
+   font-size:x-large;
+   float: right;
+   margin-top: 10px;
+   align-items: center;
+   align-content: center;
+   align-self: center;
+   background-color: #012970;
+   color: white;
+   border-radius: 10px;
+   text-align: center;
+}
 .input2{
   margin-left:40px;
    width:40px;

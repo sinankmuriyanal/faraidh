@@ -27,7 +27,7 @@ router.get('/calculator',(req,res,next) =>{
   let names=object.musamma()
   var name=names.name
   var input=names.input;
-
+  var condition=names.condition;
  
 
   function isfirst(value){
@@ -40,7 +40,7 @@ router.get('/calculator',(req,res,next) =>{
    
 
    function isthird(value){
-    return value >= 17 && value <=24; 
+    return value > 17 && value <=24; 
    }
 
    function isone(value){
@@ -49,6 +49,9 @@ router.get('/calculator',(req,res,next) =>{
 
    function isfour(value){
     return value == "wife" ; 
+   }
+   function sister(value){
+    return value == "maternalSister" ; 
    }
 
    function isnone(value){
@@ -83,7 +86,10 @@ router.get('/calculator',(req,res,next) =>{
   for (let i = 0; i <25; i++) {
    none.push(isnone(input[i])) 
   }
-
+  var maternalsister=[];
+  for (let i = 0; i <25; i++) {
+   maternalsister.push(sister(input[i])) 
+  }
   var relatives = name.map((name, index) => {
     return {
       name: name,
@@ -94,12 +100,14 @@ router.get('/calculator',(req,res,next) =>{
       third:third[index],
       one:one[index],
       four:four[index],
-      none:none[index]
+      none:none[index],
+      condition:condition[index],
+      maternalsister:maternalsister[index]
     }
   });
   //  console.log(relatives);
 
-  res.render("calculator",{calculator:true,relatives})
+  res.render("calculator",{calculator:true,relatives,input})
 })
 
 
@@ -147,7 +155,7 @@ router.post("/result",function(req,res){
     grandSon,grandDaughter,grandFather,grandMother,grandMother2,paternalBrother,
     paternalSister,maternalBrother,maternalSister,nephew2,nephew1,uncle2,uncle1,
   cousin2,cousin1]
-  console.log(number);
+  
 
   var array=[];
   for(let i=0;i<25;i++){
@@ -155,13 +163,16 @@ router.post("/result",function(req,res){
   }
   var names=object.musamma()
   var name=(names.name);
+  var rupeeget=result.rupeeget;
   var items = name.map((name, index) => {
         return {
           name: name,
           number: number[index],
           share: result.gets[index],
           fraction:result.get[index],
-         isdefined:array[index]
+         isdefined:array[index],
+          rupeeget:rupeeget[index]
+
         }
       });
     //return {items,getstotal}
