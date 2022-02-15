@@ -8,15 +8,6 @@ var Handlebars=require("handlebars");
 const { handlebars } = require('hbs');
 const promise=require("promise");
 
-
-
-
-
-
-
-
-
-
 /* GET home page. */
 router.get('/', (req, res, next) => {
   
@@ -44,7 +35,7 @@ router.get('/calculator',(req,res,next) =>{
    }
 
    function isone(value){
-    return value == "father" || value =="mother" || value == "grandFather" || value == "grandMother" || value == "grandMother2" || value == "husband" ; 
+    return value == "father" || value =="mother" || value == "grandFather" || value == "grandMother" || value == "grandMother2"  ; 
    }
 
    function isfour(value){
@@ -57,6 +48,8 @@ router.get('/calculator',(req,res,next) =>{
    function isnone(value){
      return value != "father" && value != "mother" && value != "grandFather" && value != "grandMother" && value != "grandMother2" && value != "husband" && value != "wife" ; 
    }
+   function husband(value){
+    return value == "husband"}
 
   var no=[]
   for(i=0;i<23;i++){
@@ -90,6 +83,10 @@ router.get('/calculator',(req,res,next) =>{
   for (let i = 0; i <25; i++) {
    maternalsister.push(sister(input[i])) 
   }
+  var husbands=[];
+  for (let i = 0; i <25; i++) {
+   husbands.push(husband(input[i])) 
+  }
   var relatives = name.map((name, index) => {
     return {
       name: name,
@@ -102,7 +99,8 @@ router.get('/calculator',(req,res,next) =>{
       four:four[index],
       none:none[index],
       condition:condition[index],
-      maternalsister:maternalsister[index]
+      maternalsister:maternalsister[index],
+      husbands:husbands[index]
     }
   });
   //  console.log(relatives);
@@ -196,11 +194,14 @@ router.get("/articles",(req,res)=>{
 })
 
 router.get("/rules",(req,res)=>{
-  res.render("rules",{rules:true})
+  var ok=object.musamma();
+  var headings=ok.headings;
+  // console.log(headings);
+  res.render("rules",headings)
 })
 
 router.get("/rules/whoAreEligible",(req,res)=>{
-  res.render("whoAreEligible")
+  res.render("rulepages/whoAreEligible")
 })
 
 router.post("/contact-us",(req,res)=>{

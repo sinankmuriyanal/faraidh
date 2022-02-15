@@ -221,6 +221,24 @@ module.exports={
         
                 }
         }
+
+        if(((number.husband==1 && number.mother==1) || (number.husband==1 && number.grandFather==1)) || ((number.husband==1 && number.grandMother==1) || (number.husband==1 && number.grandMother2==1))){
+            
+            if(number.fullBrother>=1 || number.fullSister>=1){
+                
+                if(number.maternalBrother>1 || number.maternalSister>1){
+                    
+                    var thebakki=maternalBrothergets+maternalSistergets;
+                   
+                    var howmuch=(number.fullBrother+number.maternalBrother)*2+(number.fullSister+number.maternalSister);
+                    maternalBrothergets=(thebakki/howmuch)*number.maternalBrother*2;
+                    maternalSistergets=(thebakki/howmuch)*number.maternalSister;
+                    fullBrothergets=(thebakki/howmuch)*number.fullBrother*2;
+                    fullSistergets=(thebakki/howmuch)*number.fullSister;
+                    
+                }
+            }
+        }
             
         
         
@@ -553,7 +571,7 @@ module.exports={
                 
             if(((number.son==0 && number.grandSon==0) && (number.father==0)) &&(number.grandFather==0)) {
                 if(number.fullBrother>=1 && number.fullSister==0) {
-                fullBrothergets=balance;
+                fullBrothergets+=balance;
                 exp.push("Full brother gets the all balance")
                 }else if(number.fullBrother>=1 && number.fullSister>=1) {
                     var shares=(number.fullBrother*2)+number.fullSister;
@@ -660,17 +678,69 @@ module.exports={
              ************************************************************/	
 
 
-if(number.son>=1) {
+if(number.son>=1 && number.grandSon>=1) {
     grandSongets=0;
+    exp.push("Grandson gets blocked by son")
 }
 
-if(number.father==1 || number.son>=1 || number.grandSon>=1) {
+if(number.father>=1  && number.grandFather>=1) {
+    grandFathergets=0;
+    exp.push("Grandfather gets blocked by father")
+}
+if((number.son >=1 && number.daughter>=1) && number.grandDaughter>=1){
+    grandDaughtergets=0;
+    exp.push("Granddaughter gets blocked by son and daughter")
+}
+if((number.father>=1 || number.son>=1 )&& (number.maternalBrother>=1 || number.maternalSister>=1)) {
+    maternalBrothergets=0;
+    maternalSistergets=0;
+    exp.push("Maternal brothers and sisters get blocked by father and son")
+}
+
+if(number.mother>=1  && (number.grandMother>=1 || number.grandMother2>=1 )) {
+    grandMother2gets=0;
+    grandMothergets=0
+    exp.push("Grandmothers gets blocked by mother")
+}
+
+if((number.father==1 || number.son>=1 || number.grandSon>=1)  && number.fullBrother>=1) {
     fullBrothergets=0;
-}
-if(number.father==1 || number.son>=1 || number.grandSon>=1 || number.fullBrother>=1) {
-    paternalBrothergets=0;
+    exp.push("Full brother gets blocked by father or son")
 }
 
+if((number.father==1 || number.son>=1 || number.grandSon>=1 || number.fullBrother>=1)  && number.paternalBrother>=1) {
+    paternalBrothergets=0;
+    exp.push("Paternal brother gets blocked by father or son or full brother")
+}
+
+if((number.father==1 || number.son>=1 || number.grandSon>=1 || number.fullBrother>=1  || number.paternalBrother>=1) && number.cousin2>=1) {
+    cousin2gets=0;
+    exp.push("cousins gets blocked by father or son or brothers")
+}
+
+if((number.father==1 || number.son>=1 || number.grandSon>=1 || number.fullBrother>=1  || number.paternalBrother>=1 || number.cousin2>=1) && number.cousin1>=1) {
+    cousin1gets=0;
+    exp.push("Paternal cousin gets blocked by father or son or brothers or full cousin")
+}
+if((number.father==1 || number.son>=1 || number.grandSon>=1 || number.fullBrother>=1  || number.paternalBrother>=1 || number.cousin2>=1 || number.cousin1>=1) && number.uncle2>=1) {
+    uncle2gets=0;
+    exp.push("Uncles gets blocked by father or son or brothers or cousins")
+}
+if((number.father==1 || number.son>=1 || number.grandSon>=1 || number.fullBrother>=1  || number.paternalBrother 
+    || number.cousin2 || number.cousin1>=1 || number.uncle1>=1) && number.uncle1>=1) {
+    uncle1gets=0;
+    exp.push("Paternal uncle gets blocked by father or son or brothers or  cousins and full uncle")
+}
+if((number.father==1 || number.son>=1 || number.grandSon>=1 || number.fullBrother>=1  || number.paternalBrother || number.cousin2 
+    || number.cousin1>=1 || number.uncle1>=1 || number.nephew2>=1) && number.nephew2>=1) {
+    nephew2gets=0;
+    exp.push("nephews gets blocked by father or son or brothers or cousins or uncles")
+}
+if((number.father==1 || number.son>=1 || number.grandSon>=1 || number.fullBrother>=1  || number.paternalBrother || number.cousin2 
+    || number.cousin1>=1 || number.uncle1>=1 || number.nephew2>=1 || number.nephew2>=1) && number.nephew1>=1) {
+    nephew1gets=0;
+    exp.push("Paternal nephew gets blocked by father or son or brothers or cousins or uncles or full nephew")
+}
 if(number.fullSister>=2 && number.paternalSister>=2){
     paternalSistergets=0;
 }
@@ -703,11 +773,18 @@ if(number.fullSister>=2 && number.paternalSister>=2){
        
         
        
-         var gets=[fathergets.toFixed(1),mothergets.toFixed(1),songets.toFixed(1),daughtergets.toFixed(1),husbandgets.toFixed(1),
-            wifegets.toFixed(1),fullBrothergets.toFixed(1),fullSistergets.toFixed(1),grandSongets.toFixed(1),grandDaughtergets.toFixed(1),
-            grandFathergets.toFixed(1),grandMothergets.toFixed(1),grandMother2gets.toFixed(1),paternalBrothergets.toFixed(1),paternalSistergets.toFixed(1),
-            maternalBrothergets.toFixed(1),maternalSistergets.toFixed(1),nephew2gets.toFixed(1),nephew1gets.toFixed(1),uncle2gets.toFixed(1),uncle1gets.toFixed(1),
-            cousin2gets.toFixed(1),cousin1gets.toFixed(1)
+         var gets=[fathergets.toFixed(2),mothergets.toFixed(2),songets.toFixed(2),daughtergets.toFixed(2),husbandgets.toFixed(2),
+            wifegets.toFixed(2),fullBrothergets.toFixed(2),fullSistergets.toFixed(2),grandSongets.toFixed(2),grandDaughtergets.toFixed(2),
+            grandFathergets.toFixed(2),grandMothergets.toFixed(2),grandMother2gets.toFixed(2),paternalBrothergets.toFixed(2),paternalSistergets.toFixed(2),
+            maternalBrothergets.toFixed(2),maternalSistergets.toFixed(2),nephew2gets.toFixed(2),nephew1gets.toFixed(2),uncle2gets.toFixed(2),uncle1gets.toFixed(2),
+            cousin2gets.toFixed(2),cousin1gets.toFixed(2)
+        ]
+
+        var rupees=[fathergets,mothergets,songets,daughtergets,husbandgets,
+            wifegets,fullBrothergets,fullSistergets,grandSongets,grandDaughtergets,
+            grandFathergets,grandMothergets,grandMother2gets,paternalBrothergets,paternalSistergets,
+            maternalBrothergets,maternalSistergets,nephew2gets,nephew1gets,uncle2gets,uncle1gets,
+            cousin2gets,cousin1gets
         ]
         
 
@@ -744,7 +821,7 @@ if(number.fullSister>=2 && number.paternalSister>=2){
 
         var rupeeget=[];
         for(let i=0;i<23;i++){
-            rupeeget.push(((gets[i]/100)*number.rupees).toFixed(1));
+            rupeeget.push(((rupees[i]/100)*number.rupees).toFixed(1));
           }
         console.log(rupeeget);
         
@@ -752,7 +829,7 @@ if(number.fullSister>=2 && number.paternalSister>=2){
         var getstotal=fathergets+mothergets+wifegets+husbandgets+songets+daughtergets+grandFathergets+grandMothergets+grandMother2gets
             +fullSistergets+paternalSistergets+maternalBrothergets+maternalSistergets+grandSongets+grandDaughtergets+
             fullBrothergets+paternalBrothergets+nephew2gets+nephew1gets+uncle2gets+uncle1gets+cousin2gets+cousin1gets;
-            getstotal=getstotal.toFixed(1)
+            getstotal=getstotal.toFixed(2)
         
         //console.log({gets,get,getstotal})
             //callback ({gets,get,getstotal})

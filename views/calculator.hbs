@@ -87,43 +87,34 @@
           
 
           <div class="col-lg-4 mt-6 mt-lg-0" data-aos="fade-up" data-aos-delay="200">
-            
-            {{!-- <label class="name">  name of the deceased</label>
-            <input name="deceased" type="text" style="width: 100%;"> --}}
+      
             {{#each relatives}}
             {{#if first}}
               
-                {{!-- <h2 class="accordion-header">
-                  <button style="
-  
-  margin-left:40px;
-  font-weight: 400;
-  margin-top: 10px;
-  width: auto;" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#{{this.name}}">
-                   <label class="name" for="product_name" >{{this.name}}</label>
-                  </button>
-                </h2>
-                <div id="{{this.name}}" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
-                  <div class="accordion-body">
-                    {{this.condition}} 
-                  </div>
-                </div>
-               --}}
                
               <label class="name" for="product_name" >{{this.name}}</label>
-              {{!-- <button onclick="increment()">+</button>
-              <button onclick="decrement()">-</button> --}}
+              {{!-- <input type="button" value="+" onclick="steponup({{this.input}})" id="{{this.input}}" name="{{this.input}}">
+              <input type="button" value="-" onclick="stepondown({{this.input}})" id="{{this.input}}" name="{{this.input}}"> --}}
+              
             {{#if one}}
-              <input type="number" class="input"  id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0" max="1" value="0">
+              <input type="number" class="input" onclick="steponup({{this.input}})" id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0"  value="0">
               {{/if}}
+            {{#if husbands}}
+            <input type="number" class="input"  id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0" max="1" value="0">
+            {{/if}}
             {{#if four}}
-              <input type="number" class="input"  id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0" max="4" value="0">
+              <input type="number" class="input"   id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0" max="4" value="0">
               {{/if}}
             {{#if none}}
-              <input type="number" class="input"  id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0"  value="0">
+              <input type="number" class="input" onclick="steponup({{this.input}})"  id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0"  value="0">
               {{/if}}
             {{/if}}
             {{/each}}
+  
+
+   
+{{!-- <input type="button" value="+" id="plus">
+<input type="button" value="-" id="minus"> --}}
 
             
 
@@ -137,58 +128,15 @@
                     only the real father, no stepdad 
                   </div>
                 </div>
-           <input type="number" class="input"   name="father" placeholder="0" min="0" max="1" value="0">
-          
-
-             <label class="name" for="product_name" >Mother</label>
-           <input type="number" class="input"   name="mother" placeholder="0" min="0" max="1" value="0">
-          <button ">+</button>
-              <button >-</button>
-
-             <label class="name" for="product_name" >Son</label>
-           <input type="number" class="input"   name="son" placeholder="0" min="0" value="0">
-          
-
-              <label class="name" for="product_name">Daughter</label>
-           <input type="number" class="input"   name="daughter" placeholder="0" min="0"  value="0">
-
-             <label class="name" for="product_name">Husband</label>
-           <input type="number" class="input"   name="husband" placeholder="0" min="0" max="1" value="0">
-
-             <label class="name" for="product_name" >Wife</label>
-           <input type="number" class="input"   name="wife" placeholder="0" min="0" max="4" value="0">
-
-             <label class="name" for="product_name" >Full Brother</label>
-           <input type="number" class="input"   name="fullBrother" placeholder="0" min="0"  value="0">
-
-             <label class="name" for="product_name" >Full Sister</label>
-           <input type="number" class="input"   name="fullSister" placeholder="0" min="0" value="0">
+           
           --}}
           </div> 
 
           <div class="col-lg-4 mt-6 mt-lg-0" data-aos="fade-up" data-aos-delay="400">
-            {{!-- <label class="name" >Select your madhhab</label>
-            <select class="custom-select mr-sm-2" name="mother">
-            <option selected>madhhab</option>
-            <option value="hanafi">Hanafi</option>
-            <option value="maliki">Maliki</option>
-            <option value="shafihi">Shafihi</option>
-            <option value="hanbali">Hanbali</option> --}}
-        
-          </select>
+       
             {{#each relatives}}
             {{#if second}}
-             {{!-- <h2 class="accordion-header">
-                  <button style="width: auto; height: auto;" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#{{this.name}}">
-                   <label class="name" for="product_name" >{{this.name}}</label>
-                  </button>
-                </h2>
-                <div id="{{this.name}}" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
-                  <div class="accordion-body">
-                    only the real father, no stepdad 
-                  </div>
-                </div> --}}
-               
+      
              <label class="name" for="product_name" >{{this.name}}</label>
               
              {{#if one}}
@@ -200,23 +148,7 @@
               {{/if}}
             {{/if}}
             {{/each}}
-              {{!-- <label class="name" for="product_name" >Grandson</label>
-           <input type="number" class="input"   name="grandSon" placeholder="0" min="0" value="0">
-             <label class="name" for="product_name" >Granddaughter</label>
-           <input type="number" class="input"   name="grandDaughter" placeholder="0" min="0" value="0">
-             <label class="name" for="product_name" >Grandfather</label>
-           <input type="number" class="input"   name="grandFather" placeholder="0" min="0"  value="0">
-             <label class="name" for="product_name" >Grandmother</label>
-           <input type="number" class="input"   name="grandMother" placeholder="0" min="0" value="0">
-            <label class="name" for="product_name" >Grandmother2</label>
-           <input type="number" class="input"   name="grandMother2" placeholder="0" min="0" max="1" value="0">
-              <label class="name" for="product_name" >MaternalBrother</label>
-           <input type="number" class="input"   name="maternalBrother" placeholder="0" min="0" value="0">
-             <label class="name" for="product_name" >MaternalSister</label>
-           <input type="number" class="input"   name="maternalSister" placeholder="0" min="0" value="0">
-             <label class="name" for="product_name" >PaternalBrother</label>
-           <input type="number" class="input"   name="paternalBrother" placeholder="0" min="0"  value="0">
-             --}}
+         
           
           </div>
 
@@ -229,43 +161,18 @@
               <input type="number" class="input2"  id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0"  value="0">
               {{/if}}
             {{#if third}}
-             {{!-- <h2 class="accordion-header">
-                  <button style="width: auto; height: auto;" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#{{this.name}}">
-                   <label class="name" for="product_name" >{{this.name}}</label>
-                  </button>
-                </h2>
-                <div id="{{this.name}}" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
-                  <div class="accordion-body">
-                    only the real father, no stepdad 
-                  </div>
-                </div> --}}
+      
             <label class="name" for="product_name" >{{this.name}}</label>
              
             <input type="number" class="input" id="{{this.input}}"  name="{{this.input}}" placeholder="0" min="0"  value="0">
             {{/if}}
             {{/each}}
             <label class="name"> Total Rupees</label>
-            <input name="rupees" type="number" class="input5">
-              {{!-- <label class="name" for="product_name" > PaternalSister</label>
-           <input type="number" class="input"   name="paternalSister" placeholder="0" min="0"  value="0">
-             <label class="name" for="product_name" >Nephew2</label>
-           <input type="number" class="input"   name="nephew2" placeholder="0" min="0" max="1" value="0">
-             <label class="name" for="product_name" >Nephew1</label>
-           <input type="number" class="input"   name="nephew1" placeholder="0" min="0" max="1" value="0">
-             <label class="name" for="product_name" >Uncle2</label>
-           <input type="number" class="input"   name="uncle2" placeholder="0" min="0" max="1" value="0">
-              <label class="name" for="product_name" >Uncle1</label>
-           <input type="number" class="input"   name="uncle1" placeholder="0" min="0" max="1" value="0">
-             <label class="name" for="product_name" >Cousin2</label>
-           <input type="number" class="input"   name="cousin2" placeholder="0" min="0" max="1" value="0">
-             <label class="name" for="product_name" >Cousin1</label>
-           <input type="number" class="input"   name="cousin1" placeholder="0" min="0" max="1" value="0"> --}}
-             {{!-- <input id="demoInput" type="number">
-            <button onclick="increment()">+</button>
-              <button onclick="decrement()">-</button> --}}
+            <input name="rupees" type="number" class="input5" placeholder="0000">
+           
           
 
-          
+          <p id="demo"></p>
         </div>
         <button  id="btn" type="submit" style="background-color: rgb(21, 22, 88);color: white; font-weight: 800;" class="btn  mt-4">Submit</button>
         </form>
@@ -279,19 +186,86 @@
    
       {{!-- <input id="demoInput" type="number" min=0 max=110 value="0" placeholder="0"> --}}
       
-        {{!-- {{#each input}} 
-        <p>{{this}}</p>
+        
+       {{!-- let button = document.getElementById('plus')
+button.addEventListener('click', function() {
+  steponup()
+}) --}}
+
 <script>
-       function increment() {
-      document.getElementById("father").stepUp();
-   }
-        function decrement() {
-      document.getElementById("father").stepDown();
-   }
+
+
+function steponup(name) {
+  var named =toString(name)
+  let input = document.getElementById(named)
+  let val = 0;
+
+  if (val) {  /* increment with a parameter */
+    input.stepUp(val)
+  } else {    /* or without a parameter. Try it with 0 */
+    input.stepUp()
+  }
+}
+
+function stepondown() {
   
-    </script>
-     {{/each}} --}}
+  let input = document.getElementById("son")
+  let val = 0;
+
+  if (val) {  /* increment with a parameter */
+    input.stepDown(val)
+  } else {    /* or without a parameter. Try it with 0 */
+    input.stepDown()
+  }
+}
+
+document.getElementById("husband").disabled = false;
+document.getElementById("wife").disabled = false;
+
+var dis1 = document.getElementById("husband");
+var dis2 = document.getElementById("wife");
+dis1.onchange = function () {
+   if (this.value ==1 ) {
+      document.getElementById("wife").disabled = true;
       
+   }else{
+     document.getElementById("wife").disabled = false;
+   }
+}
+dis2.onchange = function () {
+   if (this.value >=1 ) {
+      document.getElementById("husband").disabled = true;
+   }else{
+     document.getElementById("husband").disabled = false;
+   }
+}
+ 
+const productOptions = document.querySelectorAll(".product-options");
+
+productOptions.forEach((node) => {
+  const itemCount = node.querySelector(".item-quantity");
+  const add = node.querySelector("button[action='add']");
+  const remove = node.querySelector("button[action='remove']");
+
+  add.addEventListener("click", () => {
+    itemCount.value = parseInt(itemCount.value, 10) + 1;
+  });
+
+  remove.addEventListener("click", () => {
+    itemCount.value = parseInt(itemCount.value, 10) - 1;
+  });
+});
+
+</script>
+
+      {{!-- let husband=document.getElementById("husband").value;
+  let wife=document.getElementById("wife").value;
+  
+  if(husband==1){
+    wife==0;
+  }else(wife==1){
+    husband==0;
+  } --}}
 
   
 

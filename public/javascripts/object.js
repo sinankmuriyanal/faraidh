@@ -25,8 +25,20 @@ module.exports={
 
 
         ]
+
+        var headings=[
+            "INTRODUCTION",
+            "LIABLILITES ON INHERITANCE",
+            "INHERITANCE",
+            "HEIRS OF INHERITANCE",
+            "PRESCRIBED SHARES OF HEIRS",
+            "AL THA'SEEB",
+            "AL HAJB",
+            "AL AUL",
+            "AL RADD"
+        ]
         
-            return({name,input,condition})
+            return({name,input,condition,headings})
         
     },
     numbers:(relatives,callback)=>{
