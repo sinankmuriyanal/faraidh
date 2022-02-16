@@ -117,7 +117,7 @@
                 <button class="decrease" type="button" title="Decrease Quantity">-</button>
                 
                 {{#if one}}
-                <input type="number" class="quantity-amount" onclick="steponup({{this.input}})" id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0" max="1" value="0">
+                <input type="number" class="quantity-amount"  id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0" max="1" value="0">
                 {{/if}}
             {{#if husbands}}
             <input type="number" class="quantity-amount"  id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0" max="1" value="0">
@@ -126,7 +126,7 @@
               <input type="number" class="quantity-amount"   id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0" max="4" value="0">
               {{/if}}
             {{#if none}}
-              <input type="number" class="quantity-amount" onclick="steponup({{this.input}})"  id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0"  value="0">
+              <input type="number" class="quantity-amount"   id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0"  value="0">
               {{/if}}
            <button class="increase" type="button" title="Increase Quantity">+</button>
           
@@ -227,25 +227,30 @@ function stepondown() {
 document.getElementById("husband").disabled = false;
 document.getElementById("wife").disabled = false;
 
-
+{{!-- var sinan =getElementsByClassName("quantity-amount")
+sina.onchange=function(){
+  if(document.getElementById("husband").value ==1 && document.getElementById("wife").value>=1){
+     alert("hi")
+   }
+} --}}
 var husband = document.getElementById("husband");
 var wife = document.getElementById("wife");
 husband.onchange = function () {
    if (this.value ==1 ) {
-      document.getElementById("wife").disabled = true;
       
-   }else{
-     document.getElementById("wife").disabled = false;
+      
+   }else if(this.value ==1 && document.getElementById("wife").value>=1){
+     alert("hi")
    }
 }
 wife.onchange = function () {
    if (this.value >=1 ) {
       document.getElementById("husband").disabled = true;
+      document.getElementById("husband").innerHTML ="0";
    }else{
      document.getElementById("husband").disabled = false;
    }
 }
- 
 
 var value,
     quantity = document.getElementsByClassName('quantity-container');
@@ -263,15 +268,19 @@ var value,
 					createBindings(quantity[i]);
         }
     };
-
+   init();
+    
     function increaseValue(event, quantityAmount) {
         value = parseInt(quantityAmount.value, 10);
 
         console.log(quantityAmount, quantityAmount.value);
-
+        
         value = isNaN(value) ? 0 : value;
+        
         value++;
         quantityAmount.value = value;
+        
+      
     }
 
     function decreaseValue(event, quantityAmount) {
@@ -283,9 +292,15 @@ var value,
         quantityAmount.value = value;
     }
     
-    init();
+    
+
+    
+    
+
+
 
 </script>
+
 
   
   

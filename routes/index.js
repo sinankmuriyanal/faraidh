@@ -111,6 +111,12 @@ router.get('/calculator',(req,res,next) =>{
 
 
 router.post("/result",function(req,res){
+  if(req.body.husband==1 && req.body.wife>=1){
+    alert("husband and wife can't come together!!!")
+  }
+  
+  // console.log(req.body.husband && result);
+  
   // console.log(req.body);
     var result=rules.divide(req.body)
       //console.log(result)
