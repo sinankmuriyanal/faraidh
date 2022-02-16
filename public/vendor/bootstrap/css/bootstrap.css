@@ -4093,6 +4093,8 @@ textarea.form-control-lg {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100%;
+  background: url(..../images/bars.png) top center no-repeat;
+  background-color: black;
   
 }
 

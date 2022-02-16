@@ -13,7 +13,11 @@ module.exports={
         for(var i=1;i<17;i++){
             gets[i]=0;
         }*/
-        
+        if(number.husband==1){
+            number.wife=0
+        }else if(number.wife>=1){
+            number.husband=0
+        }
 
          var fathergets=0;
         var mothergets=0;
@@ -113,17 +117,17 @@ module.exports={
                 exp.push("Daughter gets her presribed share of 1/2 ")
             }else if(number.daughter>1) {
                 daughtergets= ((2/3)*100);
-                exp.push("Daughter gets her presribed share of 2/3 ")
+                exp.push("Daughter gets their presribed share of 2/3 ")
             }
         }
         
         if(number.son==0 && number.daughter==0) {
             if(number.grandSon==0 && number.grandDaughter==1) {
                 grandDaughtergets=50;
-                exp.push("Daughter gets her presribed share of 1/2")
+                exp.push("Granddaughter gets her presribed share of 1/2")
             }else if(number.grandSon==0 && number.grandDaughter>1) {
                 grandDaughtergets= ((2/3)*100);
-                exp.push("Daughter gets her presribed share of 2/3")
+                exp.push("Granddaughters get their presribed share of 2/3")
             }
         } 
                    
@@ -773,11 +777,11 @@ if(number.fullSister>=2 && number.paternalSister>=2){
        
         
        
-         var gets=[fathergets.toFixed(2),mothergets.toFixed(2),songets.toFixed(2),daughtergets.toFixed(2),husbandgets.toFixed(2),
-            wifegets.toFixed(2),fullBrothergets.toFixed(2),fullSistergets.toFixed(2),grandSongets.toFixed(2),grandDaughtergets.toFixed(2),
-            grandFathergets.toFixed(2),grandMothergets.toFixed(2),grandMother2gets.toFixed(2),paternalBrothergets.toFixed(2),paternalSistergets.toFixed(2),
-            maternalBrothergets.toFixed(2),maternalSistergets.toFixed(2),nephew2gets.toFixed(2),nephew1gets.toFixed(2),uncle2gets.toFixed(2),uncle1gets.toFixed(2),
-            cousin2gets.toFixed(2),cousin1gets.toFixed(2)
+         var gets=[fathergets.toFixed(1),mothergets.toFixed(1),songets.toFixed(1),daughtergets.toFixed(1),husbandgets.toFixed(1),
+            wifegets.toFixed(1),fullBrothergets.toFixed(1),fullSistergets.toFixed(1),grandSongets.toFixed(1),grandDaughtergets.toFixed(1),
+            grandFathergets.toFixed(1),grandMothergets.toFixed(1),grandMother2gets.toFixed(1),paternalBrothergets.toFixed(1),paternalSistergets.toFixed(1),
+            maternalBrothergets.toFixed(1),maternalSistergets.toFixed(1),nephew2gets.toFixed(1),nephew1gets.toFixed(1),uncle2gets.toFixed(1),uncle1gets.toFixed(1),
+            cousin2gets.toFixed(1),cousin1gets.toFixed(1)
         ]
 
         var rupees=[fathergets,mothergets,songets,daughtergets,husbandgets,
@@ -829,7 +833,7 @@ if(number.fullSister>=2 && number.paternalSister>=2){
         var getstotal=fathergets+mothergets+wifegets+husbandgets+songets+daughtergets+grandFathergets+grandMothergets+grandMother2gets
             +fullSistergets+paternalSistergets+maternalBrothergets+maternalSistergets+grandSongets+grandDaughtergets+
             fullBrothergets+paternalBrothergets+nephew2gets+nephew1gets+uncle2gets+uncle1gets+cousin2gets+cousin1gets;
-            getstotal=getstotal.toFixed(2)
+            getstotal=getstotal.toFixed(1)
         
         //console.log({gets,get,getstotal})
             //callback ({gets,get,getstotal})

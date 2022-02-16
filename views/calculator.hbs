@@ -1,5 +1,5 @@
    {{!--   --}}
-    <section id="features" class="features">
+    <section id="features" class="features" style="margin-left: 20px;">
       <div class="row feature-icons" data-aos="fade-right">
           <h3>USER MANUAL </h3>
 
@@ -72,11 +72,11 @@
         </section> 
 
 
-   <section id="values" class="values">
+   <div id="values" class="values" style="padding-left: 5%;padding-right: 5%;">
 
-      <div class="container" data-aos="fade-up">
+      <div style="margin-left: -40px;" data-aos="fade-up">
 
-        <header class="section-header">
+        <header class="section-header" style="margin-left: 10%;">
           
           <p>ISLAMIC INHERITANCE CALCULATOR</p>
         </header>
@@ -87,65 +87,76 @@
           
 
           <div class="col-lg-4 mt-6 mt-lg-0" data-aos="fade-up" data-aos-delay="200">
-      
-            {{#each relatives}}
+           {{#each relatives}}
             {{#if first}}
-              
-               
-              <label class="name" for="product_name" >{{this.name}}</label>
-              {{!-- <input type="button" value="+" onclick="steponup({{this.input}})" id="{{this.input}}" name="{{this.input}}">
-              <input type="button" value="-" onclick="stepondown({{this.input}})" id="{{this.input}}" name="{{this.input}}"> --}}
-              
-            {{#if one}}
-              <input type="number" class="input" onclick="steponup({{this.input}})" id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0"  value="0">
-              {{/if}}
-            {{#if husbands}}
-            <input type="number" class="input"  id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0" max="1" value="0">
-            {{/if}}
-            {{#if four}}
-              <input type="number" class="input"   id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0" max="4" value="0">
-              {{/if}}
-            {{#if none}}
-              <input type="number" class="input" onclick="steponup({{this.input}})"  id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0"  value="0">
-              {{/if}}
-            {{/if}}
-            {{/each}}
-  
-
-   
-{{!-- <input type="button" value="+" id="plus">
-<input type="button" value="-" id="minus"> --}}
-
             
+           
+            <div class="quantity-container">
+              {{!-- <div class="row">
 
-              {{!-- <h2 class="accordion-header">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-1">
-                    <label class="name" for="product_name" >Father</label>
+              <div  id="faqlist1"  style="display: block;">
+               <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#{{this.name}}">
+                    <label class="name" for="product_name" >{{this.name}}</label>
                   </button>
                 </h2>
-            <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
+                <div id="{{this.name}}" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
                   <div class="accordion-body">
-                    only the real father, no stepdad 
+                    {{this.condition}}
                   </div>
                 </div>
+              </div>
+            </div>
+            </div>
+             --}}
            
-          --}}
+            
+                <label class="name" for="product_name" >{{this.name}}</label>
+            
+                <button class="decrease" type="button" title="Decrease Quantity">-</button>
+                
+                {{#if one}}
+                <input type="number" class="quantity-amount" onclick="steponup({{this.input}})" id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0" max="1" value="0">
+                {{/if}}
+            {{#if husbands}}
+            <input type="number" class="quantity-amount"  id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0" max="1" value="0">
+            {{/if}}
+            {{#if four}}
+              <input type="number" class="quantity-amount"   id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0" max="4" value="0">
+              {{/if}}
+            {{#if none}}
+              <input type="number" class="quantity-amount" onclick="steponup({{this.input}})"  id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0"  value="0">
+              {{/if}}
+           <button class="increase" type="button" title="Increase Quantity">+</button>
+          
+                
+                
+
+          </div>
+           {{/if}}
+            {{/each}}
+       
+
           </div> 
 
           <div class="col-lg-4 mt-6 mt-lg-0" data-aos="fade-up" data-aos-delay="400">
        
             {{#each relatives}}
             {{#if second}}
-      
+                <div class="quantity-container">
              <label class="name" for="product_name" >{{this.name}}</label>
-              
+              <button class="decrease" type="button" title="Decrease Quantity">-</button>
              {{#if one}}
-              <input type="number" class="input2"  id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0" max="1" value="0">
+              <input type="number" class="quantity-amount"  id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0" max="1" value="0">
               {{/if}}
             
             {{#if none}}
-              <input type="number" class="input2"  id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0"  value="0">
+              <input type="number" class="quantity-amount"  id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0"  value="0">
               {{/if}}
+                  
+                <button class="increase" type="button" title="Increase Quantity">+</button>
+              </div>
             {{/if}}
             {{/each}}
          
@@ -155,16 +166,20 @@
           <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="600">
             
             {{#each relatives}}
-            {{#if maternalsister}}
-            <label class="name" for="product_name" >{{this.name}}</label>
-
-              <input type="number" class="input2"  id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0"  value="0">
-              {{/if}}
+            
+            
+    
+              
             {{#if third}}
-      
+      <div class="quantity-container">
             <label class="name" for="product_name" >{{this.name}}</label>
+             <button class="decrease" type="button" title="Decrease Quantity">-</button>
+            
+            <input type="number" class="quantity-amount" id="{{this.input}}"  name="{{this.input}}" placeholder="0" min="0"  value="0">
+           
              
-            <input type="number" class="input" id="{{this.input}}"  name="{{this.input}}" placeholder="0" min="0"  value="0">
+                <button class="increase" type="button" title="Increase Quantity">+</button>
+                 </div>
             {{/if}}
             {{/each}}
             <label class="name"> Total Rupees</label>
@@ -172,25 +187,15 @@
            
           
 
-          <p id="demo"></p>
+         
         </div>
         <button  id="btn" type="submit" style="background-color: rgb(21, 22, 88);color: white; font-weight: 800;" class="btn  mt-4">Submit</button>
         </form>
 
       </div>
 
-    </section><!-- End Values Section -->
-    
-   
+   </div><!-- End Values Section -->
 
-   
-      {{!-- <input id="demoInput" type="number" min=0 max=110 value="0" placeholder="0"> --}}
-      
-        
-       {{!-- let button = document.getElementById('plus')
-button.addEventListener('click', function() {
-  steponup()
-}) --}}
 
 <script>
 
@@ -222,9 +227,10 @@ function stepondown() {
 document.getElementById("husband").disabled = false;
 document.getElementById("wife").disabled = false;
 
-var dis1 = document.getElementById("husband");
-var dis2 = document.getElementById("wife");
-dis1.onchange = function () {
+
+var husband = document.getElementById("husband");
+var wife = document.getElementById("wife");
+husband.onchange = function () {
    if (this.value ==1 ) {
       document.getElementById("wife").disabled = true;
       
@@ -232,7 +238,7 @@ dis1.onchange = function () {
      document.getElementById("wife").disabled = false;
    }
 }
-dis2.onchange = function () {
+wife.onchange = function () {
    if (this.value >=1 ) {
       document.getElementById("husband").disabled = true;
    }else{
@@ -240,33 +246,48 @@ dis2.onchange = function () {
    }
 }
  
-const productOptions = document.querySelectorAll(".product-options");
 
-productOptions.forEach((node) => {
-  const itemCount = node.querySelector(".item-quantity");
-  const add = node.querySelector("button[action='add']");
-  const remove = node.querySelector("button[action='remove']");
+var value,
+    quantity = document.getElementsByClassName('quantity-container');
 
-  add.addEventListener("click", () => {
-    itemCount.value = parseInt(itemCount.value, 10) + 1;
-  });
+		function createBindings(quantityContainer) {
+      var quantityAmount = quantityContainer.getElementsByClassName('quantity-amount')[0];
+      var increase = quantityContainer.getElementsByClassName('increase')[0];
+      var decrease = quantityContainer.getElementsByClassName('decrease')[0];
+      increase.addEventListener('click', function (e) { increaseValue(e, quantityAmount); });
+      decrease.addEventListener('click', function (e) { decreaseValue(e, quantityAmount); });
+    }
 
-  remove.addEventListener("click", () => {
-    itemCount.value = parseInt(itemCount.value, 10) - 1;
-  });
-});
+    function init() {
+        for (var i = 0; i < quantity.length; i++ ) {
+					createBindings(quantity[i]);
+        }
+    };
+
+    function increaseValue(event, quantityAmount) {
+        value = parseInt(quantityAmount.value, 10);
+
+        console.log(quantityAmount, quantityAmount.value);
+
+        value = isNaN(value) ? 0 : value;
+        value++;
+        quantityAmount.value = value;
+    }
+
+    function decreaseValue(event, quantityAmount) {
+        value = parseInt(quantityAmount.value, 10);
+
+        value = isNaN(value) ? 0 : value;
+        if (value > 0) value--;
+
+        quantityAmount.value = value;
+    }
+    
+    init();
 
 </script>
 
-      {{!-- let husband=document.getElementById("husband").value;
-  let wife=document.getElementById("wife").value;
   
-  if(husband==1){
-    wife==0;
-  }else(wife==1){
-    husband==0;
-  } --}}
-
   
 
 

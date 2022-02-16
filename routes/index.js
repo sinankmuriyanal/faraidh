@@ -31,7 +31,7 @@ router.get('/calculator',(req,res,next) =>{
    
 
    function isthird(value){
-    return value > 17 && value <=24; 
+    return value >= 17 && value <=24; 
    }
 
    function isone(value){

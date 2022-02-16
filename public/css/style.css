@@ -58,15 +58,41 @@ body {
 
 }
 .name {
+  
   color: #012970;
-  font-size:x-large;
+  font-size:20px;
   margin-left:40px;
   font-weight: 400;
   margin-top: 10px;
-  
+  margin-right: auto;
 }
-.input{
-  margin-left:90px;
+.decrease{
+  display: block;
+  width: 35px;
+  height: 35px;
+  margin-top: 15px;
+  border-radius: 10px;
+  float: left;
+  background-color: #84a8e6;
+   color: white;
+}
+.increase{
+  display: block;
+  width: 35px;
+  height: 35px;
+  margin-top: 15px;
+  border-radius: 10px;
+  float: left;
+  background-color: #84a8e6;
+   color: white;
+}
+.quantity-container{
+  display: flex; /* 2. display flex to the rescue */
+  flex-direction: row;
+}
+.quantity-amount{
+  display: block;
+  margin: 3px 3px;
    width:40px;
    font-size:x-large;
    float: right;
@@ -84,8 +110,9 @@ body {
   
 }
 .input5{
-  margin-left:30px;
-   width:100px;
+  display: block;
+  margin: 3px 3px;
+   width:120px;
    font-size:x-large;
    float: right;
    margin-top: 10px;
@@ -136,10 +163,12 @@ h1, h2, h3, h4, h5, h6 {
 section {
   padding: 60px 0;
   overflow: hidden;
+  padding-left: 20px;
 }
 section {
   padding: 60px 0;
   overflow: hidden;
+  padding-left: 20px;
 }
 
 .section-header {
