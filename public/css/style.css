@@ -65,13 +65,13 @@ body {
 .name {
   
   color: #012970;
-  font-size:20px;
+  font-size:25px;
   margin-left:40px;
   font-weight: 400;
   margin-top: 10px;
   margin-right: auto;
 }
-.decrease{
+.decrease,.decrease1,.decrease4{
   display: block;
   width: 35px;
   height: 35px;
@@ -81,7 +81,7 @@ body {
   background-color: #012970;
    color: white;
 }
-.increase{
+.increase,.increase1,.increase4{
   display: block;
   width: 35px;
   height: 35px;
@@ -91,11 +91,11 @@ body {
   background-color: #012970;
    color: white;
 }
-.quantity-container{
+.quantity-container,.quantity-container1,.quantity-container4{
   display: flex; /* 2. display flex to the rescue */
   flex-direction: row;
 }
-.quantity-amount{
+.quantity-amount,.quantity-amount1,.quantity-amount4{
   display: block;
   margin: 3px 3px;
    width:40px;

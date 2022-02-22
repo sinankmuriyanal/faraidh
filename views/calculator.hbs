@@ -91,7 +91,7 @@
             {{#if first}}
             
            
-            <div class="quantity-container">
+            
               {{!-- <div class="row">
 
               <div  id="faqlist1"  style="display: block;">
@@ -112,28 +112,55 @@
              --}}
            
             
-                <label class="name" for="product_name" >{{this.name}}</label>
-            
-                <button class="decrease" type="button" title="Decrease Quantity">-</button>
+                
                 
                 {{#if one}}
-                <input type="number" class="quantity-amount"  id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0" max="1" value="0">
+                <div class="quantity-container1">
+                <label class="name" for="product_name" >{{this.name}}</label>
+                <button class="decrease1" type="button" title="Decrease count">-</button>
+                <input type="number1" class="quantity-amount1"  id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0" max="1" value="0">
+                <button class="increase1" type="button" title="Increase count">+</button>
+                </div>
                 {{/if}}
+            
+
+          
             {{#if husbands}}
-            <input type="number" class="quantity-amount"  id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0" max="1" value="0">
+            <div class="quantity-container1">
+                <label class="name" for="product_name" >{{this.name}}</label>
+                <button class="decrease1" type="button" title="Decrease count">-</button>
+                <input type="number1" class="quantity-amount1"  id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0" max="1" value="0">
+                <button class="increase1" type="button" title="Increase count">+</button>
+                </div>
             {{/if}}
-            {{#if four}}
-              <input type="number" class="quantity-amount"   id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0" max="4" value="0">
+          
+
+
+        {{#if four}}
+            <div class="quantity-container4">
+                 <label class="name" for="product_name" >{{this.name}}</label>
+                <button class="decrease4" type="button" title="Decrease count">-</button>
+                <input type="number" class="quantity-amount4"   id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0" max="4" value="0">
+                <button id="wife"  class="increase4" type="button" title="Increase count">+</button>
+                </div>
               {{/if}}
+            
+
+            
             {{#if none}}
-              <input type="number" class="quantity-amount"   id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0"  value="0">
+            <div class="quantity-container">
+                <label class="name" for="product_name" >{{this.name}}</label>
+                <button class="decrease" type="button" title="Decrease count">-</button>
+                <input type="number" class="quantity-amount"   id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0"  value="0">
+                <button  class="increase" type="button" title="Increase count">+</button>
+             </div>
               {{/if}}
-           <button class="increase" type="button" title="Increase Quantity">+</button>
+           
           
                 
                 
 
-          </div>
+          
            {{/if}}
             {{/each}}
        
@@ -144,19 +171,27 @@
        
             {{#each relatives}}
             {{#if second}}
-                <div class="quantity-container">
-             <label class="name" for="product_name" >{{this.name}}</label>
-              <button class="decrease" type="button" title="Decrease Quantity">-</button>
+                
              {{#if one}}
-              <input type="number" class="quantity-amount"  id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0" max="1" value="0">
+             <div class="quantity-container1">
+             <label class="name" for="product_name" >{{this.name}}</label>
+              <button class="decrease1" type="button" title="Decrease count">-</button>
+              <input type="number" class="quantity-amount1"  id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0" max="1" value="0">
+                 <button class="increase1" type="button" title="Increase count">+</button>
+            </div>
               {{/if}}
-            
+           
             {{#if none}}
+            <div class="quantity-container">
+              <label class="name" for="product_name" >{{this.name}}</label>
+              <button class="decrease" type="button" title="Decrease count">-</button>
+           
               <input type="number" class="quantity-amount"  id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0"  value="0">
+              <button class="increase" type="button" title="Increase count">+</button>
+              </div>
               {{/if}}
                   
-                <button class="increase" type="button" title="Increase Quantity">+</button>
-              </div>
+                
             {{/if}}
             {{/each}}
          
@@ -173,12 +208,12 @@
             {{#if third}}
       <div class="quantity-container">
             <label class="name" for="product_name" >{{this.name}}</label>
-             <button class="decrease" type="button" title="Decrease Quantity">-</button>
+             <button class="decrease" type="button" title="Decrease count">-</button>
             
             <input type="number" class="quantity-amount" id="{{this.input}}"  name="{{this.input}}" placeholder="0" min="0"  value="0">
            
              
-                <button class="increase" type="button" title="Increase Quantity">+</button>
+                <button class="increase" type="button" title="Increase count">+</button>
                  </div>
             {{/if}}
             {{/each}}
@@ -189,43 +224,21 @@
 
          
         </div>
-        <button  id="btn" type="submit" style="background-color: rgb(21, 22, 88);color: white; font-weight: 800;" class="btn  mt-4">Submit</button>
+        <button  id="btn" type="submit" style="background-color: rgb(21, 22, 88);color: white; font-weight: 200;" class="btn  mt-4">Submit</button>
         </form>
 
       </div>
 
    </div><!-- End Values Section -->
-
+     <section id="features" class="features"></section>
 
 <script>
 
 
-function steponup(name) {
-  var named =toString(name)
-  let input = document.getElementById(named)
-  let val = 0;
-
-  if (val) {  /* increment with a parameter */
-    input.stepUp(val)
-  } else {    /* or without a parameter. Try it with 0 */
-    input.stepUp()
-  }
-}
-
-function stepondown() {
-  
-  let input = document.getElementById("son")
-  let val = 0;
-
-  if (val) {  /* increment with a parameter */
-    input.stepDown(val)
-  } else {    /* or without a parameter. Try it with 0 */
-    input.stepDown()
-  }
-}
 
 document.getElementById("husband").disabled = false;
-document.getElementById("wife").disabled = false;
+
+document.getElementById("wife").disabled = true;
 
 {{!-- var sinan =getElementsByClassName("quantity-amount")
 sina.onchange=function(){
@@ -235,6 +248,10 @@ sina.onchange=function(){
 } --}}
 var husband = document.getElementById("husband");
 var wife = document.getElementById("wife");
+{{!-- document.getElementsByName("increase4").onchange =function(){
+  if(document.getElementById(""))
+} --}}
+
 husband.onchange = function () {
    if (this.value ==1 ) {
       
@@ -293,46 +310,90 @@ var value,
     }
     init();
 
-    var value2,
-    quantity2 = document.getElementsByClassName('quantity-container');
+    var value1,
+    quantity1 = document.getElementsByClassName('quantity-container1');
 
-		function createBindings(quantityContainer) {
-      var quantityAmount = quantityContainer.getElementsByClassName('quantity-amount')[0];
-      var increase = quantityContainer.getElementsByClassName('increase')[0];
-      var decrease = quantityContainer.getElementsByClassName('decrease')[0];
-      increase.addEventListener('click', function (e) { increaseValue(e, quantityAmount); });
-      decrease.addEventListener('click', function (e) { decreaseValue(e, quantityAmount); });
+		function createBindings1(quantityContainer1) {
+      var quantityAmount1 = quantityContainer1.getElementsByClassName('quantity-amount1')[0];
+      var increase1 = quantityContainer1.getElementsByClassName('increase1')[0];
+      var decrease1 = quantityContainer1.getElementsByClassName('decrease1')[0];
+      increase1.addEventListener('click', function (e) { increaseValue1(e, quantityAmount1); });
+      decrease1.addEventListener('click', function (e) { decreaseValue1(e, quantityAmount1); });
     }
 
-    function init() {
-        for (var i = 0; i < quantity.length; i++ ) {
-					createBindings(quantity[i]);
+    function init1() {
+        for (var i = 0; i < quantity1.length; i++ ) {
+					createBindings1(quantity1[i]);
         }
     };
    
     
-    function increaseValue(event, quantityAmount) {
-        value = parseInt(quantityAmount.value, 10);
+    function increaseValue1(event, quantityAmount1) {
+        value1 = parseInt(quantityAmount1.value, 10);
 
-        console.log(quantityAmount, quantityAmount.value);
+        console.log(quantityAmount1, quantityAmount1.value);
         
-        value = isNaN(value) ? 0 : value;
+        value1 = isNaN(value1) ? 0 : value1;
         
-        value++;
-        quantityAmount.value = value;
+        if (value1 ==0)value1++;
+        quantityAmount1.value = value1;
         
       
     }
 
-    function decreaseValue(event, quantityAmount) {
-        value = parseInt(quantityAmount.value, 10);
+    function decreaseValue1(event, quantityAmount1) {
+        value1 = parseInt(quantityAmount1.value, 10);
 
-        value = isNaN(value) ? 0 : value;
-        if (value > 0) value--;
+        value1 = isNaN(value) ? 0 : value1;
+        if (value1 > 0) value1--;
 
-        quantityAmount.value = value;
+        quantityAmount1.value = value1;
     }
-    init();
+    init1();
+
+     var value4,
+    quantity4 = document.getElementsByClassName('quantity-container4');
+
+		function createBindings4(quantityContainer4) {
+      var quantityAmount4 = quantityContainer4.getElementsByClassName('quantity-amount4')[0];
+      var increase4 = quantityContainer4.getElementsByClassName('increase4')[0];
+      var decrease4 = quantityContainer4.getElementsByClassName('decrease4')[0];
+      increase4.addEventListener('click', function (e) { increaseValue4(e, quantityAmount4); });
+      decrease4.addEventListener('click', function (e) { decreaseValue4(e, quantityAmount4); });
+    }
+
+    function init4() {
+        for (var i = 0; i < quantity4.length; i++ ) {
+					createBindings4(quantity4[i]);
+        }
+    };
+   
+    
+    function increaseValue4(event, quantityAmount4) {
+        value4 = parseInt(quantityAmount4.value, 10);
+
+        console.log(quantityAmount4, quantityAmount4.value);
+        
+        value4 = isNaN(value4) ? 0 : value4;
+       
+
+        if (value4 <4)value4++;
+        quantityAmount4.value = value4;
+        
+      
+    }
+
+    function decreaseValue4(event, quantityAmount4) {
+        value4 = parseInt(quantityAmount4.value, 10);
+
+        value4 = isNaN(value) ? 0 : value4;
+        if (value4 > 0) value4--;
+
+        quantityAmount4.value = value4;
+    }
+    init4();
+
+    
     
 
     
