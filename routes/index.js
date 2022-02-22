@@ -212,7 +212,7 @@ router.get("/rules/whoAreEligible",(req,res)=>{
 
 router.post("/contact-us",(req,res)=>{
   res.render("contact-us",{message:"thank you for your feedback"})
-  console.log(req.body);
+  
 })
 
 module.exports = router;

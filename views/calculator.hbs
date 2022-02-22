@@ -15,8 +15,8 @@
                  <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
                   <i class="ri-brush-4-line"></i>
                   <div>
-                    <h4>What id Faraidh calculator</h4>
-                    <p>Faraidh calculator gives you the shares of each relative of the deceased in percentage and fraction along with its step to step reasons.</p>
+                    <h4>What is Al-farāʾiḍ calculator?</h4>
+                    <p>Al-farāʾiḍ calculator shows the shares of each relative of the deceased in percentage and fraction along with its explanations.</p>
                   </div>
                 </div>
                 
@@ -24,7 +24,7 @@
                   <i class="ri-magic-line"></i>
                   <div>
                     <h4>How to use</h4>
-                    <p>Enter the  number of the relatives of the deceased correctly and click submit button</p>
+                    <p>Enter the  count of the relatives of the deceased correctly and click submit button.</p>
                   </div>
                 </div>
 
@@ -32,16 +32,16 @@
                 <div class="col-md-6 icon-box" data-aos="fade-up">
                   <i class="ri-line-chart-line"></i>
                   <div>
-                    <h4>Befere entering the form</h4>
-                    <p>Make sure you have given the deceased's wasiyya and repaid his all debts</p>
+                    <h4>Befere the submission</h4>  
+                    <p>Make sure you have given the deceased's wasiyya and paid all his debts.</p>
                   </div>
                 </div>
 
-                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
+                {{!-- <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
                   <i class="ri-stack-line"></i>
                   <div>
                     <h4> Enter the data correctly</h4>
-                    <p>Make sure the data that you have entered is correct as it is very important in Faraidh</p>
+                    <p>Make sure the data you have entered is correct </p>
                   </div>
                 </div>
 
@@ -51,14 +51,14 @@
                     <h4>Need explanation?</h4>
                     <p>Click the explanation bar to know how each one got their shares</p>
                   </div>
-                </div>
+                </div> --}}
 
                 <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="500">
                   <i class="ri-radar-line"></i>
                   <div>
                     <h4>These are the only eligible relatives</h4>
                     <p>The relatives shown below are the only eligible relatives for inheritance, others only get the 
-                      inheritance if none of these relatives (other than husband and wife) are alive</p>
+                      inheritance if none of these relatives (other than husband and wife) are alive.</p>
                   </div>
                 </div>
 
@@ -268,7 +268,7 @@ var value,
 					createBindings(quantity[i]);
         }
     };
-   init();
+   
     
     function increaseValue(event, quantityAmount) {
         value = parseInt(quantityAmount.value, 10);
@@ -291,7 +291,48 @@ var value,
 
         quantityAmount.value = value;
     }
+    init();
+
+    var value2,
+    quantity2 = document.getElementsByClassName('quantity-container');
+
+		function createBindings(quantityContainer) {
+      var quantityAmount = quantityContainer.getElementsByClassName('quantity-amount')[0];
+      var increase = quantityContainer.getElementsByClassName('increase')[0];
+      var decrease = quantityContainer.getElementsByClassName('decrease')[0];
+      increase.addEventListener('click', function (e) { increaseValue(e, quantityAmount); });
+      decrease.addEventListener('click', function (e) { decreaseValue(e, quantityAmount); });
+    }
+
+    function init() {
+        for (var i = 0; i < quantity.length; i++ ) {
+					createBindings(quantity[i]);
+        }
+    };
+   
     
+    function increaseValue(event, quantityAmount) {
+        value = parseInt(quantityAmount.value, 10);
+
+        console.log(quantityAmount, quantityAmount.value);
+        
+        value = isNaN(value) ? 0 : value;
+        
+        value++;
+        quantityAmount.value = value;
+        
+      
+    }
+
+    function decreaseValue(event, quantityAmount) {
+        value = parseInt(quantityAmount.value, 10);
+
+        value = isNaN(value) ? 0 : value;
+        if (value > 0) value--;
+
+        quantityAmount.value = value;
+    }
+    init();
     
 
     
