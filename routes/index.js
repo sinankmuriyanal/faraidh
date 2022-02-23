@@ -7,10 +7,20 @@ var object=require("../public/javascripts/object");
 var Handlebars=require("handlebars");
 const { handlebars } = require('hbs');
 const promise=require("promise");
+// var glob = require( 'glob' );
+// var language_dict = {};
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-  
+  // var q = url.parse(req.url, true);
+  // var lang = 'en';
+  // let dash = q.pathname.split("/");
+  // if(dash.length >= 2) {
+  //   let code = dash[1];
+  //   if(code !== '' && language_dict.hasOwnProperty(code)) {
+  //     lang = code;
+  //   }
+  // }
   res.render('index',{home:true});
 
 });

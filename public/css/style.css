@@ -31,8 +31,8 @@
   font-size: 15px;
   position: absolute;
   z-index: 1;
-  left: 100%;
-  top: 0%;
+  left: 0%;
+  top: 100%;
 }
 
 .hovertext:hover:before {
@@ -45,11 +45,13 @@
   color: white;
    font-weight: 200;width:20%;
     margin-left: 40%;
-    margin-right: 40%
+    margin-right: 40%;
+    
 }
 #btn:hover{
   color: #e6ccf5;
-  background-color: rgb(8, 143, 30);
+  background-color: rgb(15, 14, 26);
+  
 }
 :root {
   scroll-behavior: smooth;
