@@ -156,15 +156,21 @@ router.post("/result",function(req,res){
     grandSon,grandDaughter,grandFather,grandMother,grandMother2,paternalBrother,
     paternalSister,maternalBrother,maternalSister,nephew2,nephew1,uncle2,uncle1,
   cousin2,cousin1]
-  
 
+
+  var rupeeget=result.rupeeget;
+  var perhead=[];
   var array=[];
+  var perheadrupees=[];
   for(let i=0;i<25;i++){
     array.push(isdefined(number[i]));
+    perhead.push(result.gets[i]/number[i]);
+    perheadrupees.push((rupeeget[i]/number[i]).toFixed(1));
   }
+  
   var names=object.musamma()
   var name=(names.name);
-  var rupeeget=result.rupeeget;
+  
   var items = name.map((name, index) => {
         return {
           name: name,
@@ -172,7 +178,9 @@ router.post("/result",function(req,res){
           share: result.gets[index],
           fraction:result.get[index],
          isdefined:array[index],
-          rupeeget:rupeeget[index]
+          rupeeget:rupeeget[index],
+          perhead:perhead[index],
+          perheadrupees:perheadrupees[index]
 
         }
       });

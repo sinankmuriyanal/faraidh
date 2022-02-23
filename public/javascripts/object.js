@@ -14,8 +14,8 @@ module.exports={
         var condition=[
             "Only real father, not the stepfather",
             "Only the real mother, not the step mother",
-            "",
-            "",
+            "Only the real son, not the adopted son",
+            "Only the real daughter, not the adopted daughter",
             "",
             "The wife in the idda of Talaq raj'iyaa is also eligible",
             "Brother in  the same father and mother",

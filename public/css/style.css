@@ -7,6 +7,38 @@
 .header-middle .header-right .divider{display:none}.header-middle .header-center{margin-left:auto;margin-right:auto}
 .header-middle .compare{margin-right:1.5rem}
 .mobile-menu-toggle{display:block}}@media (max-width: 767px){.header-middle .mobile-search{display:block}}
+.hovertext {
+  position: relative;
+  color: #012970;
+  font-size:22px;
+  margin-left:40px;
+  font-weight: 400;
+  margin-top: 10px;
+  margin-right: auto;
+}
+
+.hovertext:before {
+  content: attr(data-hover);
+  visibility: hidden;
+  opacity: 0;
+  width: 250px;
+  background-color: #012970;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px 0;
+  transition: opacity 1s ease-in-out;
+  font-size: 15px;
+  position: absolute;
+  z-index: 1;
+  left: 100%;
+  top: 0%;
+}
+
+.hovertext:hover:before {
+  opacity: 1;
+  visibility: visible;
+}
 
 #btn{
   background-color: rgb(21, 22, 88);

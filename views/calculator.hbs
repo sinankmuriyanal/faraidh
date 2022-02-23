@@ -85,7 +85,7 @@
 
         <div class="row">
           
-
+ 
           <div class="col-lg-4 mt-6 mt-lg-0" data-aos="fade-up" data-aos-delay="200">
            {{#each relatives}}
             {{#if first}}
@@ -98,7 +98,9 @@
                <div class="accordion-item">
                 <h2 class="accordion-header">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#{{this.name}}">
-                    <label class="name" for="product_name" >{{this.name}}</label>
+                    <span class="hovertext" data-hover="{{this.condition}}">
+                  {{this.name}}*
+                </span>
                   </button>
                 </h2>
                 <div id="{{this.name}}" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
@@ -116,7 +118,10 @@
                 
                 {{#if one}}
                 <div class="quantity-container1">
-                <label class="name" for="product_name" >{{this.name}}</label>
+                {{!-- <label class="name" for="product_name" >{{this.name}}</label> --}}
+                 <span class="hovertext" data-hover="{{this.condition}}">
+                  {{this.name}}*
+                </span>
                 <button class="decrease1" type="button" title="Decrease count">-</button>
                 <input type="number1" class="quantity-amount1"  id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0" max="1" value="0">
                 <button class="increase1" type="button" title="Increase count">+</button>
@@ -127,7 +132,9 @@
           
             {{#if husbands}}
             <div class="quantity-containerhus">
-                <label class="name" for="product_name" >{{this.name}}</label>
+                <span class="hovertext" data-hover="{{this.condition}}">
+                  {{this.name}}*
+                </span>
                 <button class="decreasehus" type="button" title="Decrease count">-</button>
                 <input type="numberhus" class="quantity-amounthus"  id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0" max="1" value="0">
                 <button class="increasehus" type="button" title="Increase count">+</button>
@@ -138,7 +145,9 @@
 
         {{#if four}}
             <div class="quantity-container4">
-                 <label class="name" for="product_name" >{{this.name}}</label>
+                 <span class="hovertext" data-hover="{{this.condition}}">
+                  {{this.name}}*
+                </span>
                 <button class="decrease4" type="button" title="Decrease count">-</button>
                 <input type="number" class="quantity-amount4"   id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0" max="4" value="0">
                 <button id="wife" class="increase4" type="button" title="Increase count">+</button>
@@ -149,7 +158,9 @@
             
             {{#if none}}
             <div class="quantity-container">
-                <label class="name" for="product_name" >{{this.name}}</label>
+                <span class="hovertext" data-hover="{{this.condition}}">
+                  {{this.name}}*
+                </span>
                 <button class="decrease" type="button" title="Decrease count">-</button>
                 <input type="number" class="quantity-amount"   id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0"  value="0">
                 <button class="increase" type="button" title="Increase count">+</button>
@@ -174,7 +185,9 @@
                 
              {{#if one}}
              <div class="quantity-container1">
-             <label class="name" for="product_name" >{{this.name}}</label>
+             <span class="hovertext" data-hover="{{this.condition}}">
+                  {{this.name}}*
+                </span>
               <button class="decrease1" type="button" title="Decrease count">-</button>
               <input type="number" class="quantity-amount1"  id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0" max="1" value="0">
                  <button class="increase1" type="button" title="Increase count">+</button>
@@ -183,7 +196,9 @@
            
             {{#if none}}
             <div class="quantity-container">
-              <label class="name" for="product_name" >{{this.name}}</label>
+              <span class="hovertext" data-hover="{{this.condition}}">
+                  {{this.name}}*
+                </span>
               <button class="decrease" type="button" title="Decrease count">-</button>
            
               <input type="number" class="quantity-amount"  id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0"  value="0">
@@ -207,7 +222,9 @@
               
             {{#if third}}
       <div class="quantity-container">
-            <label class="name" for="product_name" >{{this.name}}</label>
+            <span class="hovertext" data-hover="{{this.condition}}">
+                  {{this.name}}*
+                </span>
              <button class="decrease" type="button" title="Decrease count">-</button>
             
             <input type="number" class="quantity-amount" id="{{this.input}}"  name="{{this.input}}" placeholder="0" min="0"  value="0">
