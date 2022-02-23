@@ -126,11 +126,11 @@
 
           
             {{#if husbands}}
-            <div class="quantity-container1">
+            <div class="quantity-containerhus">
                 <label class="name" for="product_name" >{{this.name}}</label>
-                <button class="decrease1" type="button" title="Decrease count">-</button>
-                <input type="number1" class="quantity-amount1"  id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0" max="1" value="0">
-                <button class="increase1" type="button" title="Increase count">+</button>
+                <button class="decreasehus" type="button" title="Decrease count">-</button>
+                <input type="numberhus" class="quantity-amounthus"  id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0" max="1" value="0">
+                <button class="increasehus" type="button" title="Increase count">+</button>
                 </div>
             {{/if}}
           
@@ -141,7 +141,7 @@
                  <label class="name" for="product_name" >{{this.name}}</label>
                 <button class="decrease4" type="button" title="Decrease count">-</button>
                 <input type="number" class="quantity-amount4"   id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0" max="4" value="0">
-                <button id="wife"  class="increase4" type="button" title="Increase count">+</button>
+                <button id="wife" class="increase4" type="button" title="Increase count">+</button>
                 </div>
               {{/if}}
             
@@ -152,7 +152,7 @@
                 <label class="name" for="product_name" >{{this.name}}</label>
                 <button class="decrease" type="button" title="Decrease count">-</button>
                 <input type="number" class="quantity-amount"   id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0"  value="0">
-                <button  class="increase" type="button" title="Increase count">+</button>
+                <button class="increase" type="button" title="Increase count">+</button>
              </div>
               {{/if}}
            
@@ -224,21 +224,44 @@
 
          
         </div>
-        <button  id="btn" type="submit" style="background-color: rgb(21, 22, 88);color: white; font-weight: 200;" class="btn  mt-4">Submit</button>
+        <button  id="btn" type="submit" class="btn  mt-4">Submit</button>
         </form>
 
       </div>
 
    </div><!-- End Values Section -->
-     <section id="features" class="features"></section>
+    
 
 <script>
 
 
+function steponup(name) {
+  var named =toString(name)
+  let input = document.getElementById(named)
+  let val = 0;
+
+  if (val) {  /* increment with a parameter */
+    input.stepUp(val)
+  } else {    /* or without a parameter. Try it with 0 */
+    input.stepUp()
+  }
+}
+
+function stepondown() {
+  
+  let input = document.getElementById("son")
+  let val = 0;
+
+  if (val) {  /* increment with a parameter */
+    input.stepDown(val)
+  } else {    /* or without a parameter. Try it with 0 */
+    input.stepDown()
+  }
+}
 
 document.getElementById("husband").disabled = false;
+document.getElementById("wife").disabled = false;
 
-document.getElementById("wife").disabled = true;
 
 {{!-- var sinan =getElementsByClassName("quantity-amount")
 sina.onchange=function(){
@@ -377,7 +400,9 @@ var value,
         value4 = isNaN(value4) ? 0 : value4;
        
 
-        if (value4 <4)value4++;
+        if (value4 <4)
+          if(document.getElementById("husband").value==0)
+        value4++;
         quantityAmount4.value = value4;
         
       
@@ -386,12 +411,56 @@ var value,
     function decreaseValue4(event, quantityAmount4) {
         value4 = parseInt(quantityAmount4.value, 10);
 
-        value4 = isNaN(value) ? 0 : value4;
+        value4 = isNaN(value) ? 0 : value4
         if (value4 > 0) value4--;
 
         quantityAmount4.value = value4;
     }
     init4();
+
+      var valuehus,
+    quantityhus = document.getElementsByClassName('quantity-containerhus');
+
+		function createBindingshus(quantityContainerhus) {
+      var quantityAmounthus = quantityContainerhus.getElementsByClassName('quantity-amounthus')[0];
+      var increasehus = quantityContainerhus.getElementsByClassName('increasehus')[0];
+      var decreasehus = quantityContainerhus.getElementsByClassName('decreasehus')[0];
+      increasehus.addEventListener('click', function (e) { increaseValuehus(e, quantityAmounthus); });
+      decreasehus.addEventListener('click', function (e) { decreaseValuehus(e, quantityAmounthus); });
+    }
+
+    function inithus() {
+        for (var i = 0; i < quantityhus.length; i++ ) {
+					createBindingshus(quantityhus[i]);
+        }
+    };
+   
+    
+    function increaseValuehus(event, quantityAmounthus) {
+        valuehus = parseInt(quantityAmounthus.value, 10);
+
+        console.log(quantityAmounthus, quantityAmounthus.value);
+        
+        valuehus = isNaN(valuehus) ? 0 : valuehus;
+       
+
+        if (valuehus ==0)
+          if(document.getElementById("wife").value==0)
+        valuehus++;
+        quantityAmounthus.value = valuehus;
+        
+      
+    }
+
+    function decreaseValuehus(event, quantityAmounthus) {
+        valuehus = parseInt(quantityAmounthus.value, 10);
+
+        valuehus = isNaN(value) ? 0 : valuehus;
+        if (valuehus > 0) valuehus--;
+
+        quantityAmounthus.value = valuehus;
+    }
+    inithus();
 
     
     

@@ -12,16 +12,34 @@ module.exports={
         "maternalBrother","maternalSister","nephew2","nephew1","uncle2","uncle1","cousin2","cousin1"]
         
         var condition=[
-            "only real father, not the stepfather",
-            "only the real mother, not the step mother",
+            "Only real father, not the stepfather",
+            "Only the real mother, not the step mother",
             "",
             "",
             "",
-            "the wife who is in the idda of Talaq raj'iyaa will also include in this category",
-            "brother in  the same father and mother",
-            "sister in the same father and mother",
-            "only the son's son not daughter's son ",
-            "only the son's daughter not the daughter's daughter",
+            "The wife in the idda of Talaq raj'iyaa is also eligible",
+            "Brother in  the same father and mother",
+            "Sister in the same father and mother",
+            "Only the son's son , not daughter's son ",
+            "Only the son's daughter , not the daughter's daughter",
+            "Only the father's father , not the mother's father",
+            "Father's mother",
+            "Mother's mother",
+            "Brother who has the same father and different mothers",
+            "Sister who has the same father and different mothers",
+            "Brother who has the same mother and different fathers",
+            "Sister who has the same mother and different fathers",
+            "Son of the full brother , not the daughter",
+            "Son of the paternal brother , not the daughter",
+            "Father's full brother  , not mother's",
+            "Father's paternal brother  , not mother's",
+            "Son of father's full brother  , not daughters",
+            "Son of father's paternal brother  , not daughters",
+
+
+
+
+        
 
 
         ]
