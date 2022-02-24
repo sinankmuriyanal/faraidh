@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var multer = require('multer');
 var upload = multer();
 var app = express();
+var db=require("./config/connection")
 // var glob = require( 'globe' );
 // var language_dict = {};
 
@@ -22,7 +23,10 @@ var app = express();
 //     }
 //   }
 // });
-
+db.connect((err)=>{
+  if(err) console.log("connection error"+err);
+  else console.log("database connected to port 27017");
+})
 
 var indexRouter = require('./routes/index');
 var usersRouter = require("./routes/users");

@@ -2,11 +2,13 @@
 
 var express = require('express');
 var router = express.Router();
+var adminHelper=require("../helpers/adminHelper");
 var rules =require("../public/javascripts/rules");
 var object=require("../public/javascripts/object");
 var Handlebars=require("handlebars");
 const { handlebars } = require('hbs');
 const promise=require("promise");
+
 // var glob = require( 'glob' );
 // var language_dict = {};
 
@@ -226,8 +228,19 @@ router.get("/rules/whoAreEligible",(req,res)=>{
 })
 
 router.post("/contact-us",(req,res)=>{
-  res.render("contact-us",{message:"thank you for your feedback"})
+  adminHelper.addfeedback(req.body,(data)=>{
+    console.log(data)
+    res.render("contact-us",{message:"thank you for your feedback"})
+  })
+  
   
 })
+router.get("/admin2772",(req,res)=>{
+  adminHelper.getallfeedbacks().then((feedbacks)=>{
+   
+    res.render("rules",{feedbacks})
+  })
+  }
+)
 
 module.exports = router;

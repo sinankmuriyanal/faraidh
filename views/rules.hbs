@@ -1,5 +1,76 @@
 {{!--   --}}
- <section id="features" class="features"></section>
+   <section id="blog" class="blog">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+
+          <div class="col-lg-8 entries">
+
+            <article class="entry entry-single">
+              <div class="blog-comments">
+
+              <h4 class="comments-count">8 Comments</h4>
+             
+              
+             
+               {{#each feedbacks}}
+              <div id="comment-1" class="comment">
+                <div class="d-flex">
+                  <div class="comment-img"><img src="assets/img/blog/comments-1.jpg" alt=""></div>
+                  <div>
+                    <h5><a href=""> {{this.name}}</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> {{this.subject}}</a></h5>
+                    <time datetime="2020-01-01">{{this.email}}</time>
+                    <p>
+                      {{this.message}}
+                    </p>
+                  </div>
+                </div>
+              </div><!-- End comment #1 -->
+                {{/each}}
+              
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+   </section>
+   
+              
+
+              
+
+         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ {{!-- <section id="features" class="features"></section>
  <section id="blog" class="blog">
       <div class="container" data-aos="fade-up">
 
@@ -131,4 +202,4 @@
 <section id="features" class="features"></section>
 <section id="features" class="features"></section>
 <section id="features" class="features"></section>
-<section id="features" class="features"></section>
+<section id="features" class="features"></section> --}}
