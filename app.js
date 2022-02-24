@@ -8,21 +8,7 @@ var multer = require('multer');
 var upload = multer();
 var app = express();
 var db=require("./config/connection")
-// var glob = require( 'globe' );
-// var language_dict = {};
 
-// glob.sync( './language/*.json' ).forEach( function( file ) {
-//   let dash = file.split("/");
-//   if(dash.length == 3) {
-//   	let dot = dash[2].split(".");
-//     if(dot.length == 2) {
-//       let lang = dot[0];
-//       fs.readFile(file, function(err, data) {
-//         language_dict[lang] = JSON.parse(data.toString());
-//       });
-//     }
-//   }
-// });
 db.connect((err)=>{
   if(err) console.log("connection error"+err);
   else console.log("database connected to port 27017");
