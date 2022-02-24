@@ -176,7 +176,7 @@ router.post("/result",function(req,res){
   var perheadrupees=[];
   for(let i=0;i<25;i++){
     array.push(isdefined(number[i]));
-    perhead.push(result.gets[i]/number[i].toFixed(1));
+    perhead.push((result.gets[i]/number[i]).toFixed(1));
     perheadrupees.push((rupeeget[i]/number[i]).toFixed(1));
   }
   
