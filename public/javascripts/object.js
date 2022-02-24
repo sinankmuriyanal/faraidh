@@ -3,9 +3,9 @@ module.exports={
     musamma:()=>{
 
        
-        var name=["FATHER","MOTHER","SON","DAUGHTER","HUSBAND","WIFE","FULLBROTHER","FULLSISTER","GRANDSON",
-        "GRANDDAUGHTER","GRANDFATHER","GRANDMOTHER","GRANDMOTHER2","PATERNALBROTHER","PATERNALSISTER",
-        "MATERNALBROTHER","MATERNALSISTER","NEPHEW2","NEPHEW1","UNCLE2","UNCLE1","COUSIN2","COUSIN1"];
+        var name=["FATHER","MOTHER","SON","DAUGHTER","HUSBAND","WIFE","FULL BROTHER","FULL SISTER","GRANDSON",
+        "GRANDDAUGHTER","GRANDFATHER","GRANDMOTHER","GRANDMOTHER","PATERNAL BROTHER","PATERNAL SISTER",
+        "MATERNAL BROTHER","MATERNAL SISTER","FULL NEPHEW","PATERNAL NEPHEW","FULL UNCLE","PATERNAL UNCLE","FULL COUSIN","PATERNAL COUSIN"];
 
         var input=["father","mother","son","daughter","husband","wife","fullBrother","fullSister","grandSon",
         "grandDaughter","grandFather","grandMother","grandMother2","paternalBrother","paternalSister",
