@@ -46,7 +46,19 @@
                 </tbody>
               </table>
             </div>
-         
+
+          <div class="row">
+          <div class="col-lg-12" style="border: black 2px">
+              <h1 style="color: rgb(3, 6, 168); text-align: left;">
+                            Explanation
+                        </h1>
+          
+                    {{#each exp}}
+                <h6 style="color: #012970; font-size: larger;">*{{this}}</h6>
+                {{/each}}
+                 
+          </div>
+        </div>
             
    
 
@@ -67,35 +79,6 @@
     
       
         <div class="container" data-aos="fade-up" >
-   <div class="row">
-          <div class="col-lg-12" style="border: black 2px">
-              <h1 style="color: rgb(3, 6, 168); text-align: left;">
-                            Explanation
-                        </h1>
-            <!-- F.A.Q List 1-->
-           {{!--  <div class="accordion accordion-flush" id="faqlist1">
-              <div class="accordion-item" >
-                <h2 class="accordion-header">
-                  <button  class=" accordion-button collapsed " style="background-color: #012970;text-align: center;align-items: center ;"  type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-1"> --}}
-                       
-                        
-                        
-                   
-                    
-                  {{!-- </button>
-                </h2>
-                <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
-                  <div class="accordion-body"> --}}
-                    {{#each exp}}
-                <h6 style="color: #012970; font-size: larger;">*{{this}}</h6>
-                {{/each}}
-                  {{!-- </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>--}}
    
     <section id="features" class="features"></section>
     <section id="features" class="features"></section>

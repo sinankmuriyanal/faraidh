@@ -180,10 +180,7 @@ module.exports={
         }
         
         
-        if(number.father==0 && number.grandFather==1){
-            grandFathergets= ((1/6)*100);
-            exp.push("Grandfather gets his  share of 1/6")
-        }
+        
         
         if((number.daughter==1 && number.grandDaughter>=1) &&(number.son==0 && number.grandSon==0)){
             grandDaughtergets= ((1/6)*100);
@@ -199,10 +196,10 @@ module.exports={
         if((number.son==0 && number.daughter==0) && (number.father==0 && number.grandFather==0)){
             if(number.maternalBrother==1 && number.maternalSister==0){
             maternalBrothergets= ((1/6)*100);
-            exp.push("Maternal brother gets her   share of 1/6")
+            exp.push("Maternal brother gets his  share of 1/6")
         }else if(number.maternalBrother>=2 && number.maternalSister==0){
             maternalBrothergets= ((1/3)*100);
-            exp.push("Maternal brother gets her   share of 1/3 being more than one")
+            exp.push("Maternal brother gets his  share of 1/3 being more than one")
             }
         }
         
@@ -226,23 +223,7 @@ module.exports={
                 }
         }
 
-        if(((number.husband==1 && number.mother==1) || (number.husband==1 && number.grandFather==1)) || ((number.husband==1 && number.grandMother==1) || (number.husband==1 && number.grandMother2==1))){
-            
-            if(number.fullBrother>=1 || number.fullSister>=1){
-                
-                if(number.maternalBrother>=1 || number.maternalSister>=1){
-                    console.log("yes");
-                    var thebakki=maternalBrothergets+maternalSistergets;
-                   
-                    var howmuch=(number.fullBrother+number.maternalBrother)+(number.fullSister+number.maternalSister);
-                    maternalBrothergets=(thebakki/howmuch)*number.maternalBrother;
-                    maternalSistergets=(thebakki/howmuch)*number.maternalSister;
-                    fullBrothergets=(thebakki/howmuch)*number.fullBrother;
-                    fullSistergets=(thebakki/howmuch)*number.fullSister;
-                    
-                }
-            }
-        }
+        
             
         
         
@@ -263,7 +244,11 @@ module.exports={
             exp.push("Two grandmothers equally share the 1/6 between them")
         }
 
-
+        if(number.father==0 && number.grandFather==1){
+            grandFathergets= ((1/6)*100);
+  
+                exp.push("Grandfather gets   his  share of 1/6")
+        }
 
         var others=number.father+number.mother+number.son+number.daughter+number.grandMother+number.grandSon
         +number.grandDaughter+number.maternalBrother+number.maternalSister+
@@ -275,7 +260,7 @@ module.exports={
             
             if(others==0){
                 
-                if((number.fullBrother>=1 || number.fullSister>=1) && (number.paternalBrother==0 && number.paternalSister==0)){
+                if((number.fullBrother>=1 || number.fullSister>=1) && ((number.paternalBrother==0 && number.paternalSister==0) )){
                     
                     
                     var shares=((number.fullBrother+number.grandFather)*2) + number.fullSister;
@@ -283,16 +268,22 @@ module.exports={
                     fullBrothergets=100/shares*number.fullBrother*2;
                     grandFathergets=100/shares*number.grandFather*2;
                     fullSistergets=100/shares*number.fullSister;
-                    
                             if(grandFathergets> ((1/3)*100)){
                                 grandFathergets=grandFathergets;
+                              
+                                exp.pop();
+                                exp.push("Grandfather gets   "+nf(grandFathergets/100)+"    " )
+                                exp.push("Full brothers and sisters share the balance between them in the ratio of 2:1")
+
                             }else if(grandFathergets< ((1/3)*100)){
                                 var shares=((number.fullBrother)*2) + number.fullSister;
                                 var shares=parseFloat(shares);
+                                exp.pop();
+                                exp.push("Grandfather gets   1/3 as it is best for him ")
                                 grandFathergets= ((1/3)*100);
                                 fullBrothergets= ((2/3)*100)/shares*number.fullBrother*2;
                                 fullSistergets= ((2/3)*100)/shares*number.fullSister;
-                               
+                                exp.push("Full brothers and sisters share the balance between them in the ratio of 2:1")
                                 
                             }
         
@@ -307,12 +298,19 @@ module.exports={
                             
                                     if(grandFathergets> ((1/3)*100)){
                                         grandFathergets=grandFathergets;
+                                        
+                                        exp.pop();
+                                exp.push("Grandfather gets  "+nf(grandFathergets/100)+"   " )
+                                        exp.push("Paternal brothers and sisters share the balance between them in the ratio of 2:1")
                                     }else if(grandFathergets< ((1/3)*100)){
                                         var shares=((number.paternalBrother+number.grandFather)*2) + number.paternalSister;
                                         var shares=parseFloat(shares);
+                                        exp.pop();
+                                exp.push("Grandfather gets   1/3 as it is best for him ")
                                         paternalBrothergets= ((2/3)*100)/shares*number.paternalBrother*2;
                                         paternalSistergets= ((2/3)*100)/shares*number.paternalSister;
                                         grandFathergets= ((1/3)*100);
+                                        exp.push("Paternal brothers and sisters share the balance between them in the ratio of 2:1")
                                     }
                 
                                     
@@ -325,14 +323,23 @@ module.exports={
                                      grandFathergets=100/shares*number.grandFather*2;
                                     fullSistergets=0;
                                     paternalSistergets=0;
+                                    
+                                    
+                                
 
                                     if(grandFathergets> ((1/3)*100)){
                                         grandFathergets=grandFathergets;
+                                        exp.pop();
+                                exp.push("Grandfather gets  "+nf(grandFathergets/100)+"   " )
+                                        exp.push("Full brother gets the all balance");
                                     }else if(grandFathergets< ((1/3)*100)){
                                         var shares=((number.paternalBrother+number.grandFather)*2) + number.paternalSister;
                                         var shares=parseFloat(shares);
                                         
                                         grandFathergets= ((1/3)*100);
+                                        exp.pop();
+                                exp.push("Grandfather gets   1/3 as it is best for him ")
+                                        exp.push("Full brother gets the all balance");
                                         
                                     }
                                     fullBrothergets=100-grandFathergets;
@@ -350,11 +357,17 @@ module.exports={
 
                                     if(grandFathergets> ((1/3)*100)){
                                         grandFathergets=grandFathergets;
+                                        exp.pop();
+                                exp.push("Grandfather gets  "+nf(grandFathergets/100)+"   " )
+                                        exp.push("Full sister gets the all balance not more than her prescribed share.");
                                     }else if(grandFathergets< ((1/3)*100)){
                                         var shares=((number.paternalBrother+number.grandFather)*2) + number.paternalSister;
                                         var shares=parseFloat(shares);
                                         
                                         grandFathergets= ((1/3)*100);
+                                        exp.pop();
+                                exp.push("Grandfather gets   1/3 as it is best for him ")
+                                        exp.push("Full sister gets the all balance not more than her prescribed share.");
                                     }
                                     if(number.fullSister==1){
                                         fullSistergets=((1/2)*100);
@@ -362,6 +375,32 @@ module.exports={
                                         fullSistergets=((2/3)*100);
                                     }
                                     paternalBrothergets=100-fullSistergets-grandFathergets;
+                                    exp.push("Paternal brother gets the balance")
+                }else if((number.fullBrother>=1 && number.fullSister>=1) && (number.paternalBrother>=1 || number.paternalSister>=1)){
+                    
+                    var shares=((number.paternalBrother+number.grandFather+number.fullBrother)*2) + number.paternalSister+number.fullSister;
+                    var shares=parseFloat(shares);
+                    
+                    paternalBrothergets=0;
+                    grandFathergets=100/shares*number.grandFather*2;
+                    fullSistergets=0;
+                    paternalSistergets=0;
+
+                    if(grandFathergets> ((1/3)*100)){
+                        grandFathergets=grandFathergets;
+                        exp.pop();
+                                exp.push("Grandfather gets  "+nf(grandFathergets/100)+"   " )
+                        exp.push("Full brother and sister share the all balance at the ratio of 2:1");
+                    }else if(grandFathergets< ((1/3)*100)){
+                        var shares=((number.paternalBrother+number.grandFather)*2) + number.paternalSister;
+                        var shares=parseFloat(shares);
+                        
+                        grandFathergets= ((1/3)*100);
+                        exp.pop();
+                                exp.push("Grandfather gets   1/3 as it is best for him ")
+                        exp.push("Full brother and sister share the all balance at the ratio of 2:1");
+                    }
+                   
                 }
             }
                  }
@@ -405,15 +444,17 @@ module.exports={
 
 
 
-
-        var balance=100-fathergets-mothergets-wifegets-husbandgets-daughtergets-grandDaughtergets-fullSistergets
-        -paternalSistergets-grandFathergets-grandMothergets-grandMother2gets-maternalBrothergets-maternalSistergets
-        -fullBrothergets-paternalBrothergets-songets-grandSongets;	
+        
+        
+        var balance1=fathergets+mothergets+songets+daughtergets+husbandgets+wifegets+grandDaughtergets+fullSistergets+paternalSistergets+grandFathergets;
+        var balance2=grandMothergets+grandMother2gets+maternalBrothergets+maternalSistergets+fullBrothergets+paternalBrothergets+grandSongets;
+        var balance=100-balance1-balance2;
         var balance= parseFloat(balance);
-
         
         
-        if(balance>=0) {
+        
+        console.log(balance);
+        if(balance>1) {
             
             if(number.son>=1 && number.daughter==0) {
             songets=balance;
@@ -453,18 +494,19 @@ module.exports={
                     mothergets=(100-(100/3))/3;
                     fullSistergets=(100-husbandgets-mothergets)/3;
                     grandFathergets=100-husbandgets-mothergets-fullSistergets;
-                    exp.push("According to the Akdariyya mas'ala, husband gets 1/3, mother gets 2/9, full sister gets 4/27 and grandfather gets 8/27")
+                    exp.push("According to the Akdariyya mas'ala, husband gets 1/3, mother gets 2/9, full sister gets 4/27 and Grandfather gets   8/27")
 
                 }else if(number.grandFather==1 && brothers==0) {
                     
                     grandFathergets+=balance;
-                    exp.push("Grandfather gets the all balance as the deceased has no  children and no father")
+                    exp.pop();
+                                exp.push("Grandfather gets   the all balance as the deceased has no  children and no father")
                     } 
                     
                 
                 else if(number.grandFather==1 && others>=1){
                     
-                    if(((number.fullBrother>=1 && number.fullSister>=1) || (number.fullBrother>=1 && number.fullSister>=0)) &&(number.paternalBrother==0 && number.paternalSister==0) ){
+                    if((((number.fullBrother>=1 && number.fullSister>=1) || (number.fullBrother>=1 && number.fullSister>=0)) || (number.fullBrother==0 && number.fullSister>=1)) &&(number.paternalBrother==0 && number.paternalSister==0) ){
 
                             var shares=((number.fullBrother+number.grandFather)*2) + number.fullSister;
                             var shares=parseFloat(shares);
@@ -480,6 +522,9 @@ module.exports={
             
                         if(grandFathergets> ((1/6)*100) && grandFathergets>((100-othergets)/3)){
                                 grandFathergets=grandFathergets;
+                                exp.pop();
+                                exp.push("Grandfather gets  "+nf(grandFathergets/100)+"   " )
+                                exp.push("Full brother and sister share the all balance at the ratio of 2:1");
                                 
              
                         }else if(((100-othergets)/3) > ((1/6)*100) && ((100-othergets)/3)> grandFathergets){
@@ -493,11 +538,14 @@ module.exports={
                                
                                 
                                 fullSistergets=(100-othergets-grandFathergets)/shares*number.fullSister;
+                                exp.pop();
+                                exp.push("Grandfather gets  "+nf(grandFathergets/100)+"   " )
+                                exp.push("Full brother and sister share the all balance at the ratio of 2:1");
                                 
                                 
             
                         }else if( ((1/6)*100)> grandFathergets &&  ((1/6)*100)> ((100-othergets)/3)){
-                            console.log("ok");
+                             
                                 grandFathergets= ((1/6)*100);
                                 var shares=((number.fullBrother+number.paternalBrother)*2) + number.fullSister+number.paternalSister;
                                 var shares=parseFloat(shares);
@@ -506,12 +554,65 @@ module.exports={
                                 
                                 fullSistergets=(100-othergets-grandFathergets)/shares*number.fullSister;
                                 paternalSistergets=(100-othergets-grandFathergets)/shares*number.paternalSister;
+                                exp.pop();
+                                exp.push("Grandfather gets  "+nf(grandFathergets/100)+"   " )
+                                exp.push("Full brother and sister share the all balance at the ratio of 2:1");
                                 console.log(fullSistergets);
                             }
             
-                    }else if ((number.fullBrother==1 && number.fullSister>=1) &&(number.paternalBrother==0 && number.paternalSister==0))  {
+                    }else if ((number.fullBrother==0 && number.fullSister==0) &&(number.paternalBrother>=1 || number.paternalSister>=1))  {
                             
+                        var shares=((number.paternalBrother+number.grandFather)*2) + number.paternalSister;
+                        var shares=parseFloat(shares);
+                        console.log("okd");
                         
+                        var othergets=fathergets+mothergets+songets+daughtergets+grandMothergets+grandSongets+grandDaughtergets+maternalBrothergets+maternalSistergets+wifegets+husbandgets;
+                        var othergets=parseFloat(othergets);
+                        paternalBrothergets=(100-othergets)/shares*number.paternalBrother*2;
+                       
+                        grandFathergets=(100-othergets)/shares*number.grandFather*2;
+                        paternalSistergets=(100-othergets)/shares*number.paternalSister;
+                        
+        
+                        if(grandFathergets> ((1/6)*100) && grandFathergets>((100-othergets)/3)){
+                            grandFathergets=grandFathergets;
+                            exp.pop();
+                                exp.push("Grandfather gets  "+nf(grandFathergets/100)+"   " )
+                            exp.push("paternal brother and sister share the all balance at the ratio of 2:1");
+                            
+         
+                        }else if(((100-othergets)/3) > ((1/6)*100) && ((100-othergets)/3)> grandFathergets){
+                            
+                            grandFathergets=((100-othergets)/3);
+                            var othergets=fathergets+mothergets+songets+daughtergets+grandMothergets+grandSongets+grandDaughtergets+maternalBrothergets+maternalSistergets+wifegets+husbandgets;
+                            var othergets=parseFloat(othergets);
+                            var shares=((number.paternalBrother+number.paternalBrother)*2) + number.paternalSister+number.paternalSister;
+                            var shares=parseFloat(shares);
+                            paternalBrothergets=(100-othergets-grandFathergets)/shares*number.paternalBrother*2;
+                           
+                            
+                            paternalSistergets=(100-othergets-grandFathergets)/shares*number.paternalSister;
+                            exp.pop();
+                                exp.push("Grandfather gets  "+nf(grandFathergets/100)+"   " )
+                            exp.push("paternal brother and sister share the all balance at the ratio of 2:1");
+                            
+                            
+        
+                        }else if( ((1/6)*100)> grandFathergets &&  ((1/6)*100)> ((100-othergets)/3)){
+                         
+                            grandFathergets= ((1/6)*100);
+                            var shares=((number.paternalBrother+number.paternalBrother)*2) + number.paternalSister+number.paternalSister;
+                            var shares=parseFloat(shares);
+                            paternalBrothergets=(100-othergets-grandFathergets)/shares*number.paternalBrother*2;
+                            paternalBrothergets=(100-othergets-grandFathergets)/shares*number.paternalBrother*2;
+                            
+                            paternalSistergets=(100-othergets-grandFathergets)/shares*number.paternalSister;
+                            paternalSistergets=(100-othergets-grandFathergets)/shares*number.paternalSister;
+                            exp.pop();
+                                exp.push("Grandfather gets  "+nf(grandFathergets/100)+"   " )
+                            exp.push("paternal brother and sister share the all balance at the ratio of 2:1");
+                            console.log(paternalSistergets);
+                        }
                     }else if((number.fullBrother>=1 || number.fullSister>=1) && (number.paternalBrother>=1 || number.paternalSister>=1)){
                        
                         var shares=((number.paternalBrother+number.grandFather+number.fullBrother)*2) + number.paternalSister+number.fullSister;
@@ -530,6 +631,9 @@ module.exports={
                                 fullBrothergets=(100-othergets-grandFathergets)
                                 fullSistergets=(100-othergets-grandFathergets)/(number.fullBrother+(number.fullSister*2))*number.fullSister*1
                                 paternalBrothergets=100-othergets-grandFathergets-fullBrothergets-fullSistergets;
+                                exp.pop();
+                                exp.push("Grandfather gets  "+nf(grandFathergets/100)+"   " )
+                                exp.push("Full brother and sister share the all balance at the ratio of 2:1");
                                 
                                 
              
@@ -546,6 +650,9 @@ module.exports={
                                 fullBrothergets=(100-othergets-grandFathergets)
                                 fullSistergets=(100-othergets-grandFathergets)/(number.fullBrother+(number.fullSister*2))*number.fullSister*1
                                 paternalBrothergets=100-othergets-grandFathergets-fullBrothergets-fullSistergets;
+                                exp.pop();
+                                exp.push("Grandfather gets  "+nf(grandFathergets/100)+"   " )
+                                exp.push("Full brother and sister share the all balance at the ratio of 2:1");
 
                                 // grandFathergets=((100-othergets)/3);
                                 // fullBrothergets=(100-othergets-grandFathergets)/shares*number.fullBrother*2;  
@@ -564,6 +671,9 @@ module.exports={
                                 fullBrothergets=(100-othergets-grandFathergets)/(number.fullBrother+(number.fullSister*2))*number.fullBrother*2;
                                 fullSistergets=(100-othergets-grandFathergets)/(number.fullBrother+(number.fullSister*2))*number.fullSister*1
                                 paternalBrothergets=100-othergets-grandFathergets-fullBrothergets-fullSistergets;
+                                exp.pop();
+                                exp.push("Grandfather gets  "+nf(grandFathergets/100)+"   " )
+                                exp.push("Full brother and sister share the all balance at the ratio of 2:1");
 
                                 // fullBrothergets=(100-othergets-grandFathergets)/shares*number.fullBrother*2;
                                 // paternalBrothergets=(100-othergets-grandFathergets)/shares*number.paternalBrother*2;
@@ -576,10 +686,13 @@ module.exports={
                 
                 }
             
-                
+              
             if(((number.son==0 && number.grandSon==0) && (number.father==0)) &&(number.grandFather==0)) {
                 if(number.fullBrother>=1 && number.fullSister==0) {
-                fullBrothergets+=balance;
+                    console.log(fullBrothergets);
+                    var balance=parseFloat(balance);
+                fullBrothergets=balance;
+                console.log(balance);
                 exp.push("Full brother gets the all balance")
                 }else if(number.fullBrother>=1 && number.fullSister>=1) {
                     var shares=(number.fullBrother*2)+number.fullSister;
@@ -595,7 +708,7 @@ module.exports={
             if((((number.son==0 && number.grandSon==0) && (number.father==0 &&  number.fullSister==0)) &&(number.grandFather==0)) && number.fullBrother==0) {
                 if(number.paternalBrother>=1 && number.paternalSister==0) {
                 paternalBrothergets=balance;
-                exp.push("Full brother gets the all balance")
+                exp.push("Paternal brother gets the all balance")
                 }else if(number.paternalBrother>=1 && number.paternalSister>=1) {
                     var shares=(number.paternalBrother*2)+number.paternalSister;
                     var shares= parseFloat(shares);
@@ -679,7 +792,36 @@ module.exports={
                     }
                 }
             }
+
+            // console.log(fullBrothergets);
+        
         }
+
+        if((fullBrothergets<1) && (maternalBrothergets>1 || maternalSistergets>1)){
+            if(((number.husband==1 && number.mother==1) || (number.husband==1 && number.grandFather==1)) || ((number.husband==1 && number.grandMother==1) || (number.husband==1 && number.grandMother2==1))){
+            
+                if(number.fullBrother>=1 || number.fullSister>=1){
+                    
+                    if(number.maternalBrother>=1 || number.maternalSister>=1){
+                        
+                            
+                            var thebakki=maternalBrothergets+maternalSistergets;
+                           
+                            var howmuch=(number.fullBrother+number.maternalBrother)+(number.fullSister+number.maternalSister);
+                            maternalBrothergets=(thebakki/howmuch)*number.maternalBrother;
+                            maternalSistergets=(thebakki/howmuch)*number.maternalSister;
+                            fullBrothergets=(thebakki/howmuch)*number.fullBrother;
+                            fullSistergets=(thebakki/howmuch)*number.fullSister;
+                            exp.push("As per musharaka mas'ala, the share of maternal brothers and sisters will be shared between them and full brothers and sisters as they got nothing and they are more closer to the deceased than the maternals.")
+                        
+                        
+                    }
+                }
+            }
+            
+        }
+        
+        
         // console.log("yes2");
         
             /************************************************************
@@ -696,7 +838,8 @@ if(number.son>=1 && number.grandSon>=1) {
 
 if(number.father>=1  && number.grandFather>=1) {
     grandFathergets=0;
-    exp.push("Grandfather gets blocked by father")
+    exp.pop();
+                                exp.push("Grandfather gets   blocked by father")
 }
 if((number.son >=1 && number.daughter>=1) && number.grandDaughter>=1){
     grandDaughtergets=0;
@@ -737,13 +880,13 @@ if((number.father==1 || number.son>=1 || number.grandSon>=1 || number.fullBrothe
     uncle2gets=0;
     exp.push("Uncles gets blocked by father or son or brothers or cousins")
 }
-if((number.father==1 || number.son>=1 || number.grandSon>=1 || number.fullBrother>=1  || number.paternalBrother 
-    || number.cousin2 || number.cousin1>=1 || number.uncle1>=1) && number.uncle1>=1) {
+if((number.father==1 || number.son>=1 || number.grandSon>=1 || number.fullBrother>=1  || number.paternalBrother>=1 
+    || number.cousin2>=1 || number.cousin1>=1 || number.uncle2>=1) && number.uncle1>=1) {
     uncle1gets=0;
     exp.push("Paternal uncle gets blocked by father or son or brothers or  cousins and full uncle")
 }
 if((number.father==1 || number.son>=1 || number.grandSon>=1 || number.fullBrother>=1  || number.paternalBrother || number.cousin2 
-    || number.cousin1>=1 || number.uncle1>=1 || number.nephew2>=1) && number.nephew2>=1) {
+    || number.cousin1>=1 || number.uncle1>=1 ) && number.nephew2>=1) {
     nephew2gets=0;
     exp.push("nephews gets blocked by father or son or brothers or cousins or uncles")
 }
@@ -760,7 +903,7 @@ if(number.fullSister>=2 && number.paternalSister>=2){
         var firstTotal=fathergets+mothergets+wifegets+husbandgets+songets+daughtergets+grandFathergets+grandMothergets+grandMother2gets+fullSistergets+paternalSistergets+maternalBrothergets+maternalSistergets+grandSongets+grandDaughtergets+fullBrothergets+paternalBrothergets+nephew2gets+
         nephew1gets+uncle2gets+uncle1gets+cousin2gets+cousin1gets;
         var firstTotal=parseFloat(firstTotal);
-        if(firstTotal<100){
+        if(firstTotal<99.9){
         if(((number.son==0 && number.grandSon==0) && (number.father==0 && number.grandFather==0)) 
         && ((number.fullBrother==0 && number.paternalBrother==0) )){
             mothergets=mothergets*((100-husbandgets-wifegets)/(firstTotal-husbandgets-wifegets));
@@ -776,7 +919,7 @@ if(number.fullSister>=2 && number.paternalSister>=2){
             
             grandDaughtergets=grandDaughtergets*((100-husbandgets-wifegets)/(firstTotal-husbandgets-wifegets));
         }
-        exp.push("while the shares are less than 100% and there is no one as Asaba, the balance will be devided between the ones who have already the share in it according to that ratio")
+        exp.push("while the shares are less than 100   and there is no one as Asaba, the balance will be devided between the ones who have already the share in it according to that ratio")
             
     }
         
