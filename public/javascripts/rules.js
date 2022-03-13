@@ -13,13 +13,9 @@ module.exports={
         for(var i=1;i<17;i++){
             gets[i]=0;
         }*/
-        if(number.husband==1){
-            number.wife=0
-        }else if(number.wife>=1){
-            number.husband=0
-        }
 
-         var fathergets=0;
+      
+        var fathergets=0;
         var mothergets=0;
         var songets=0;
         var daughtergets=0;
@@ -45,6 +41,9 @@ module.exports={
         var uncle1gets=0;
         var cousin2gets=0;
         var cousin1gets=0;
+        
+
+         
 
 
 
@@ -523,7 +522,7 @@ module.exports={
                         if(grandFathergets> ((1/6)*100) && grandFathergets>((100-othergets)/3)){
                                 grandFathergets=grandFathergets;
                                 exp.pop();
-                                exp.push("Grandfather gets  "+nf(grandFathergets/100)+"   " )
+                                exp.push("Grandfather gets  "+nf(grandFathergets/100)+" as the MUkasama(division of balance between grandfather, brothers and sister as the proportion of 2 and 1 between men and woman) is larger than 1/6 and Sulusul Baki(1/3 of balance)  " )
                                 exp.push("Full brother and sister share the all balance at the ratio of 2:1");
                                 
              
@@ -539,7 +538,7 @@ module.exports={
                                 
                                 fullSistergets=(100-othergets-grandFathergets)/shares*number.fullSister;
                                 exp.pop();
-                                exp.push("Grandfather gets  "+nf(grandFathergets/100)+"   " )
+                                exp.push("Grandfather gets  "+nf(grandFathergets/100)+"  as Sulusul Baki(1/3 of balance)is larger than Mukasama(division of balance between grandfather, brothers and sister as the proportion of 2 and 1 between men and woman)) and 1/6" )
                                 exp.push("Full brother and sister share the all balance at the ratio of 2:1");
                                 
                                 
@@ -555,7 +554,7 @@ module.exports={
                                 fullSistergets=(100-othergets-grandFathergets)/shares*number.fullSister;
                                 paternalSistergets=(100-othergets-grandFathergets)/shares*number.paternalSister;
                                 exp.pop();
-                                exp.push("Grandfather gets  "+nf(grandFathergets/100)+"   " )
+                                exp.push("Grandfather gets  "+nf(grandFathergets/100)+" as 1/6 is larger than  Sulusul Baki(1/3 of balance) and Mukasama(division of balance between grandfather, brothers and sister as the proportion of 2 and 1 between men and woman) " )
                                 exp.push("Full brother and sister share the all balance at the ratio of 2:1");
                                 console.log(fullSistergets);
                             }
@@ -577,7 +576,7 @@ module.exports={
                         if(grandFathergets> ((1/6)*100) && grandFathergets>((100-othergets)/3)){
                             grandFathergets=grandFathergets;
                             exp.pop();
-                                exp.push("Grandfather gets  "+nf(grandFathergets/100)+"   " )
+                                exp.push("Grandfather gets  "+nf(grandFathergets/100)+"  as the MUkasama(division of balance between grandfather, brothers and sister as the proportion of 2 and 1 between men and woman) is larger than 1/6 and Sulusul Baki(1/3 of balance) " )
                             exp.push("paternal brother and sister share the all balance at the ratio of 2:1");
                             
          
@@ -586,14 +585,14 @@ module.exports={
                             grandFathergets=((100-othergets)/3);
                             var othergets=fathergets+mothergets+songets+daughtergets+grandMothergets+grandSongets+grandDaughtergets+maternalBrothergets+maternalSistergets+wifegets+husbandgets;
                             var othergets=parseFloat(othergets);
-                            var shares=((number.paternalBrother+number.paternalBrother)*2) + number.paternalSister+number.paternalSister;
+                             var shares=((number.paternalBrother*2)+number.paternalSister);
                             var shares=parseFloat(shares);
                             paternalBrothergets=(100-othergets-grandFathergets)/shares*number.paternalBrother*2;
                            
                             
                             paternalSistergets=(100-othergets-grandFathergets)/shares*number.paternalSister;
                             exp.pop();
-                                exp.push("Grandfather gets  "+nf(grandFathergets/100)+"   " )
+                                exp.push("Grandfather gets  "+nf(grandFathergets/100)+"  as Sulusul Baki(1/3 of balance)is larger than Mukasama(division of balance between grandfather, brothers and sister as the proportion of 2 and 1 between men and woman)) and 1/6 " )
                             exp.push("paternal brother and sister share the all balance at the ratio of 2:1");
                             
                             
@@ -601,7 +600,8 @@ module.exports={
                         }else if( ((1/6)*100)> grandFathergets &&  ((1/6)*100)> ((100-othergets)/3)){
                          
                             grandFathergets= ((1/6)*100);
-                            var shares=((number.paternalBrother+number.paternalBrother)*2) + number.paternalSister+number.paternalSister;
+                             var shares=((number.paternalBrother*2)+number.paternalSister);
+                           
                             var shares=parseFloat(shares);
                             paternalBrothergets=(100-othergets-grandFathergets)/shares*number.paternalBrother*2;
                             paternalBrothergets=(100-othergets-grandFathergets)/shares*number.paternalBrother*2;
@@ -609,7 +609,7 @@ module.exports={
                             paternalSistergets=(100-othergets-grandFathergets)/shares*number.paternalSister;
                             paternalSistergets=(100-othergets-grandFathergets)/shares*number.paternalSister;
                             exp.pop();
-                                exp.push("Grandfather gets  "+nf(grandFathergets/100)+"   " )
+                                exp.push("Grandfather gets  "+nf(grandFathergets/100)+"  as 1/6 is larger than  Sulusul Baki(1/3 of balance) and Mukasama(division of balance between grandfather, brothers and sister as the proportion of 2 and 1 between men and woman) " )
                             exp.push("paternal brother and sister share the all balance at the ratio of 2:1");
                             console.log(paternalSistergets);
                         }
@@ -620,25 +620,25 @@ module.exports={
 
                             var othergets=fathergets+mothergets+songets+daughtergets+grandMothergets+grandSongets+grandDaughtergets+maternalBrothergets+maternalSistergets+wifegets+husbandgets;
                             var othergets=parseFloat(othergets);
-                            
+                            console.log(othergets);
                             fullBrothergets=(100-othergets)/shares*number.fullBrother*2;
                             grandFathergets=(100-othergets)/shares*number.grandFather*2;
                             fullSistergets=(100-othergets)/shares*number.fullSister;
-                            
                         if(grandFathergets >= ((1/6)*100) && grandFathergets >= ((100-othergets)/3)){
-                         
+
                                 grandFathergets=grandFathergets;
-                                fullBrothergets=(100-othergets-grandFathergets)
+                                fullBrothergets=(100-othergets-grandFathergets)/(number.fullBrother+(number.fullSister*2))*number.fullBrother*2
                                 fullSistergets=(100-othergets-grandFathergets)/(number.fullBrother+(number.fullSister*2))*number.fullSister*1
                                 paternalBrothergets=100-othergets-grandFathergets-fullBrothergets-fullSistergets;
                                 exp.pop();
-                                exp.push("Grandfather gets  "+nf(grandFathergets/100)+"   " )
+                                exp.push("Grandfather gets  "+nf(grandFathergets/100)+" as the MUkasama(division of balance between grandfather, brothers and sister as the proportion of 2 and 1 between men and woman) is larger than 1/6 and Sulusul Baki(1/3 of balance)  " )
                                 exp.push("Full brother and sister share the all balance at the ratio of 2:1");
                                 
                                 
              
                         }else if(((100-othergets)/3) >= ((1/6)*100) && ((100-othergets)/3)>= grandFathergets){
-                            
+                            console.log("ok");
+
                               
                                 
                                 var othergets=fathergets+mothergets+songets+daughtergets+grandMothergets+grandSongets+grandDaughtergets+maternalBrothergets+maternalSistergets+wifegets+husbandgets;
@@ -647,11 +647,11 @@ module.exports={
                                 var shares=parseFloat(shares);
 
                                 grandFathergets=((100-othergets)/3);
-                                fullBrothergets=(100-othergets-grandFathergets)
+                                fullBrothergets=(100-othergets-grandFathergets)/(number.fullBrother+(number.fullSister*2))*number.fullBrother*2
                                 fullSistergets=(100-othergets-grandFathergets)/(number.fullBrother+(number.fullSister*2))*number.fullSister*1
                                 paternalBrothergets=100-othergets-grandFathergets-fullBrothergets-fullSistergets;
                                 exp.pop();
-                                exp.push("Grandfather gets  "+nf(grandFathergets/100)+"   " )
+                                exp.push("Grandfather gets  "+nf(grandFathergets/100)+"  as Sulusul Baki(1/3 of balance) is larger than Mukasama(division of balance between grandfather, brothers and sister as the proportion of 2 and 1 between men and woman)) and 1/6 " )
                                 exp.push("Full brother and sister share the all balance at the ratio of 2:1");
 
                                 // grandFathergets=((100-othergets)/3);
@@ -672,7 +672,7 @@ module.exports={
                                 fullSistergets=(100-othergets-grandFathergets)/(number.fullBrother+(number.fullSister*2))*number.fullSister*1
                                 paternalBrothergets=100-othergets-grandFathergets-fullBrothergets-fullSistergets;
                                 exp.pop();
-                                exp.push("Grandfather gets  "+nf(grandFathergets/100)+"   " )
+                                exp.push("Grandfather gets  "+nf(grandFathergets/100)+"  as 1/6 is larger than  Sulusul Baki(1/3 of balance) and Mukasama(division of balance between grandfather, brothers and sister as the proportion of 2 and 1 between men and woman) " )
                                 exp.push("Full brother and sister share the all balance at the ratio of 2:1");
 
                                 // fullBrothergets=(100-othergets-grandFathergets)/shares*number.fullBrother*2;
@@ -867,33 +867,33 @@ if((number.father==1 || number.son>=1 || number.grandSon>=1 || number.fullBrothe
     exp.push("Paternal brother gets blocked by father or son or full brother")
 }
 
-if((number.father==1 || number.son>=1 || number.grandSon>=1 || number.fullBrother>=1  || number.paternalBrother>=1) && number.cousin2>=1) {
-    cousin2gets=0;
-    exp.push("cousins gets blocked by father or son or brothers")
+if((number.father==1 || number.son>=1 || number.grandSon>=1 || number.fullBrother>=1  || number.paternalBrother>=1) && number.nephew2>=1) {
+    nephew2gets=0;
+    exp.push("Full nephew gets blocked by father or son or brothers")
 }
 
-if((number.father==1 || number.son>=1 || number.grandSon>=1 || number.fullBrother>=1  || number.paternalBrother>=1 || number.cousin2>=1) && number.cousin1>=1) {
-    cousin1gets=0;
-    exp.push("Paternal cousin gets blocked by father or son or brothers or full cousin")
+if((number.father==1 || number.son>=1 || number.grandSon>=1 || number.fullBrother>=1  || number.paternalBrother>=1 || number.nephew2>=1) && number.nephew1>=1) {
+    nephew1gets=0;
+    exp.push("Paternal nephew gets blocked by father or son or brothers or full cousin")
 }
-if((number.father==1 || number.son>=1 || number.grandSon>=1 || number.fullBrother>=1  || number.paternalBrother>=1 || number.cousin2>=1 || number.cousin1>=1) && number.uncle2>=1) {
+if((number.father==1 || number.son>=1 || number.grandSon>=1 || number.fullBrother>=1  || number.paternalBrother>=1 || number.nephew2>=1 || number.nephew1>=1) && number.uncle2>=1) {
     uncle2gets=0;
-    exp.push("Uncles gets blocked by father or son or brothers or cousins")
+    exp.push("Uncles gets blocked by father or son or brothers or nephews")
 }
 if((number.father==1 || number.son>=1 || number.grandSon>=1 || number.fullBrother>=1  || number.paternalBrother>=1 
-    || number.cousin2>=1 || number.cousin1>=1 || number.uncle2>=1) && number.uncle1>=1) {
+    || number.nephew2>=1 || number.nephew1>=1 || number.uncle2>=1) && number.uncle1>=1) {
     uncle1gets=0;
-    exp.push("Paternal uncle gets blocked by father or son or brothers or  cousins and full uncle")
+    exp.push("Paternal uncle gets blocked by father or son or brothers or  nephews and full uncle")
 }
-if((number.father==1 || number.son>=1 || number.grandSon>=1 || number.fullBrother>=1  || number.paternalBrother || number.cousin2 
-    || number.cousin1>=1 || number.uncle1>=1 ) && number.nephew2>=1) {
-    nephew2gets=0;
-    exp.push("nephews gets blocked by father or son or brothers or cousins or uncles")
+if((number.father==1 || number.son>=1 || number.grandSon>=1 || number.fullBrother>=1  || number.paternalBrother || number.nephew2 
+    || number.nephew2>=1 || number.uncle1>=1 ) && number.cousin2>=1) {
+        cousin2gets=0;
+    exp.push("Full cousin gets blocked by father or son or brothers or nephews or uncles")
 }
-if((number.father==1 || number.son>=1 || number.grandSon>=1 || number.fullBrother>=1  || number.paternalBrother || number.cousin2 
-    || number.cousin1>=1 || number.uncle1>=1 || number.nephew2>=1 || number.nephew2>=1) && number.nephew1>=1) {
-    nephew1gets=0;
-    exp.push("Paternal nephew gets blocked by father or son or brothers or cousins or uncles or full nephew")
+if((number.father==1 || number.son>=1 || number.grandSon>=1 || number.fullBrother>=1  || number.paternalBrother || number.nephew2 
+    || number.nephew1>=1 || number.uncle1>=1 || number.nephew2>=1 || number.cousin2>=1) && number.cousin1>=1) {
+        cousin1gets=0;
+    exp.push("Paternal cousin gets blocked by father or son or brothers or nephews or uncles or full cousin")
 }
 if(number.fullSister>=2 && number.paternalSister>=2){
     paternalSistergets=0;

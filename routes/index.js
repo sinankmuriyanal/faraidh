@@ -123,22 +123,6 @@ router.get('/calculator',(req,res,next) =>{
 
 
 router.post("/result",function(req,res){
- 
-  // console.log(req.body.husband && result);
-  
-  // console.log(req.body);
-    var result=rules.divide(req.body)
-      //console.log(result)
-      
-
-    var getstotal=result.getstotal;
-    var exp=result.exp;
-    
-    function isdefined(value){
-     return value != 0; 
-    }
-
-    
   var father=(req.body.father);
   var mother=(req.body.mother);
   var son=(req.body.son);
@@ -162,6 +146,40 @@ router.post("/result",function(req,res){
   var uncle1=(req.body.uncle1);
   var cousin2=(req.body.cousin2);
   var cousin1=(req.body.cousin1);
+
+
+  // if(father==0 && mother==0)
+  //   if(husband==0 && wife==0)
+  //   if(son==0 && daughter==0)
+  //   if(fullBrother==0 && fullSister==0)
+  //   if(paternalBrother==0 && paternalSister==0)
+  //   if(maternalBrother==0 && maternalSister==0)
+  //   if(grandSon==0 && grandDaughter==0)
+  //   if(grandFather==0 && grandMother==0)
+  //   if(cousin2==0 && cousin1==0)
+  //   if(uncle2==0 && uncle1==0)
+  //   if(nephew2==0 && nephew1==0)
+  //   if(grandMother2==0){
+  //   res.redirect("/calculator")
+  // }
+  
+ 
+  // console.log(req.body.husband && result);
+  
+  // console.log(req.body);
+    var result=rules.divide(req.body)
+      //console.log(result)
+      
+
+    var getstotal=result.getstotal;
+    var exp=result.exp;
+    
+    function isdefined(value){
+     return value != 0; 
+    }
+
+    
+  
   
   
   var number=[father,mother,son,daughter,husband,wife,fullBrother,fullSister,
