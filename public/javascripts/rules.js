@@ -800,7 +800,7 @@ module.exports={
         if((fullBrothergets<1) && (maternalBrothergets>1 || maternalSistergets>1)){
             if(((number.husband==1 && number.mother==1) || (number.husband==1 && number.grandFather==1)) || ((number.husband==1 && number.grandMother==1) || (number.husband==1 && number.grandMother2==1))){
             
-                if(number.fullBrother>=1 || number.fullSister>=1){
+                if(number.fullBrother>=1){
                     
                     if(number.maternalBrother>=1 || number.maternalSister>=1){
                         
