@@ -1,0 +1,506 @@
+   {{!--   --}}
+    <section id="features" class="features" style="margin-left: 20px;">
+      <div class="row feature-icons" data-aos="fade-right">
+          <h3>USER MANUAL </h3>
+
+          <div class="row">
+
+            <div class="col-xl-4 text-center" data-aos="fade-right" data-aos-delay="100">
+              <img src="/img/features-3.png" class="img-fluid p-4" alt="">
+            </div>
+
+            <div class="col-xl-8 d-flex content">
+              <div class="row align-self-center gy-4">
+
+                 <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
+                  <i class="ri-brush-4-line"></i>
+                  <div>
+                    <h4>What is Al-farāʾiḍ calculator?</h4>
+                    <p>Al-farāʾiḍ calculator shows the shares of each relative of the deceased in percentage and fraction along with its explanations.</p>
+                  </div>
+                </div>
+                
+                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
+                  <i class="ri-magic-line"></i>
+                  <div>
+                    <h4>How to use</h4>
+                    <p>Enter the  count of the relatives of the deceased correctly and click submit button.</p>
+                  </div>
+                </div>
+
+
+                <div class="col-md-6 icon-box" data-aos="fade-up">
+                  <i class="ri-line-chart-line"></i>
+                  <div>
+                    <h4>Befere the submission</h4>  
+                    <p>Make sure you have given the deceased's wasiyya and paid all his debts.</p>
+                  </div>
+                </div>
+
+                {{!-- <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
+                  <i class="ri-stack-line"></i>
+                  <div>
+                    <h4> Enter the data correctly</h4>
+                    <p>Make sure the data you have entered is correct </p>
+                  </div>
+                </div>
+
+                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
+                  <i class="ri-command-line"></i>
+                  <div>
+                    <h4>Need explanation?</h4>
+                    <p>Click the explanation bar to know how each one got their shares</p>
+                  </div>
+                </div> --}}
+
+                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="500">
+                  <i class="ri-radar-line"></i>
+                  <div>
+                    <h4>These are the only eligible relatives</h4>
+                    <p>The relatives shown below are the only eligible relatives for inheritance, others only get the 
+                      inheritance if none of these relatives (other than husband and wife) are alive.</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+        
+        </section> 
+
+
+   <div id="values" class="values" style="padding-left: 5%;padding-right: 5%;">
+
+      <div style="margin-left: -40px;" data-aos="fade-up" >
+
+        <header class="section-header" style="margin-left: 10%;">
+          
+          <p>ISLAMIC INHERITANCE CALCULATOR</p>
+        </header>
+<form action="/result/ml" method="post" enctype="multipart/form-data">
+
+
+        <div class="row">
+          
+    {{!-- <p>French " <span lang="fr">Bonjour</span> "</p>
+    <p>Spanish " <span lang="es">Hola</span> "</p>
+    <p>Hindi " <span lang="hl">नमस्ते</span> "</p>
+    <p>Hindi " <span lang="ml">സിനാന്‍</span> "</p> --}}
+ 
+          <div class="col-lg-4 mt-6 mt-lg-0" data-aos="fade-up" data-aos-delay="200">
+           {{#each relatives}}
+            {{#if first}}
+            
+           
+            
+              {{!-- <div class="row">
+
+              <div  id="faqlist1"  style="display: block;">
+               <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#{{this.name}}">
+                    <span class="hovertext" data-hover="{{this.condition}}">
+                  {{this.name}}*
+                </span>
+                  </button>
+                </h2>
+                <div id="{{this.name}}" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
+                  <div class="accordion-body">
+                    {{this.condition}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+             --}}
+           
+            
+                
+                
+                {{#if one}}
+                <div class="quantity-container1">
+                {{!-- <label class="name" for="product_name" >{{this.name}}</label> --}}
+                 <span class="hovertext" data-hover="{{this.condition}}">
+                  {{this.name}}*
+                </span>
+                <button class="decrease1" type="button" title="Decrease count">-</button>
+                <input type="number1" class="quantity-amount1"  id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0" max="1" value="0">
+                <button class="increase1" type="button" title="Increase count">+</button>
+                </div>
+                {{/if}}
+            
+
+          
+            {{#if husbands}}
+            <div class="quantity-containerhus">
+                <span class="hovertext" data-hover="{{this.condition}}">
+                  {{this.name}}*
+                </span>
+                <button class="decreasehus" type="button" title="Decrease count">-</button>
+                <input type="numberhus" class="quantity-amounthus"  id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0" max="1" value="0">
+                <button class="increasehus" type="button" title="Increase count">+</button>
+                </div>
+            {{/if}}
+          
+
+
+        {{#if four}}
+            <div class="quantity-container4">
+                 <span class="hovertext" data-hover="{{this.condition}}">
+                  {{this.name}}*
+                </span>
+                <button class="decrease4" type="button" title="Decrease count">-</button>
+                <input type="number" class="quantity-amount4"   id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0" max="4" value="0">
+                <button id="wife" class="increase4" type="button" title="Increase count">+</button>
+                </div>
+              {{/if}}
+            
+
+            
+            {{#if none}}
+            <div class="quantity-container">
+                <span class="hovertext" data-hover="{{this.condition}}">
+                  {{this.name}}*
+                </span>
+                <button class="decrease" type="button" title="Decrease count">-</button>
+                <input type="number" class="quantity-amount"   id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0"  value="0">
+                <button class="increase" type="button" title="Increase count">+</button>
+             </div>
+              {{/if}}
+           
+          
+                
+                
+
+          
+           {{/if}}
+            {{/each}}
+       
+
+          </div> 
+
+          <div class="col-lg-4 mt-6 mt-lg-0" data-aos="fade-up" data-aos-delay="400">
+       
+            {{#each relatives}}
+            {{#if second}}
+                
+             {{#if one}}
+             <div class="quantity-container1">
+             <span class="hovertext" data-hover="{{this.condition}}">
+                  {{this.name}}*
+                </span>
+              <button class="decrease1" type="button" title="Decrease count">-</button>
+              <input type="number" class="quantity-amount1"  id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0" max="1" value="0">
+                 <button class="increase1" type="button" title="Increase count">+</button>
+            </div>
+              {{/if}}
+           
+            {{#if none}}
+            <div class="quantity-container">
+              <span class="hovertext" data-hover="{{this.condition}}">
+                  {{this.name}}*
+                </span>
+              <button class="decrease" type="button" title="Decrease count">-</button>
+           
+              <input type="number" class="quantity-amount"  id="{{this.input}}" name="{{this.input}}" placeholder="0" min="0"  value="0">
+              <button class="increase" type="button" title="Increase count">+</button>
+              </div>
+              {{/if}}
+                  
+                
+            {{/if}}
+            {{/each}}
+         
+          
+          </div>
+
+          <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="600">
+            
+            {{#each relatives}}
+            
+            
+    
+              
+            {{#if third}}
+      <div class="quantity-container">
+            <span class="hovertext" data-hover="{{this.condition}}">
+                  {{this.name}}*
+                </span>
+             <button class="decrease" type="button" title="Decrease count">-</button>
+            
+            <input type="number" class="quantity-amount" id="{{this.input}}"  name="{{this.input}}" placeholder="0" min="0"  value="0">
+           
+             
+                <button class="increase" type="button" title="Increase count">+</button>
+                 </div>
+            {{/if}}
+            {{/each}}
+            <label class="name1"> TOTAL INHERITANCE</label>
+            <input name="rupees" type="number" class="input5" placeholder="0000">
+           
+          
+
+         
+        </div>
+        <button  id="btn" type="submit" style="display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;" class="btn  mt-4">Submit</button>
+  
+        </form>
+
+      </div>
+
+   </div><!-- End Values Section -->
+    
+
+<script>
+
+
+
+function steponup(name) {
+  var named =toString(name)
+  let input = document.getElementById(named)
+  let val = 0;
+
+  if (val) {  /* increment with a parameter */
+    input.stepUp(val)
+  } else {    /* or without a parameter. Try it with 0 */
+    input.stepUp()
+  }
+}
+
+function stepondown() {
+  
+  let input = document.getElementById("son")
+  let val = 0;
+
+  if (val) {  /* increment with a parameter */
+    input.stepDown(val)
+  } else {    /* or without a parameter. Try it with 0 */
+    input.stepDown()
+  }
+}
+
+document.getElementById("husband").disabled = false;
+document.getElementById("wife").disabled = false;
+
+
+{{!-- var sinan =getElementsByClassName("quantity-amount")
+sina.onchange=function(){
+  if(document.getElementById("husband").value ==1 && document.getElementById("wife").value>=1){
+     alert("hi")
+   }
+} --}}
+var husband = document.getElementById("husband");
+var wife = document.getElementById("wife");
+{{!-- document.getElementsByName("increase4").onchange =function(){
+  if(document.getElementById(""))
+} --}}
+
+husband.onchange = function () {
+   if (this.value ==1 ) {
+      
+      
+   }else if(this.value ==1 && document.getElementById("wife").value>=1){
+     alert("hi")
+   }
+}
+wife.onchange = function () {
+   if (this.value >=1 ) {
+      document.getElementById("husband").disabled = true;
+      document.getElementById("husband").innerHTML ="0";
+   }else{
+     document.getElementById("husband").disabled = false;
+   }
+}
+
+var value,
+    quantity = document.getElementsByClassName('quantity-container');
+
+		function createBindings(quantityContainer) {
+      var quantityAmount = quantityContainer.getElementsByClassName('quantity-amount')[0];
+      var increase = quantityContainer.getElementsByClassName('increase')[0];
+      var decrease = quantityContainer.getElementsByClassName('decrease')[0];
+      increase.addEventListener('click', function (e) { increaseValue(e, quantityAmount); });
+      decrease.addEventListener('click', function (e) { decreaseValue(e, quantityAmount); });
+    }
+
+    function init() {
+        for (var i = 0; i < quantity.length; i++ ) {
+					createBindings(quantity[i]);
+        }
+    };
+   
+    
+    function increaseValue(event, quantityAmount) {
+        value = parseInt(quantityAmount.value, 10);
+
+        console.log(quantityAmount, quantityAmount.value);
+        
+        value = isNaN(value) ? 0 : value;
+        
+        value++;
+        quantityAmount.value = value;
+        
+      
+    }
+
+    function decreaseValue(event, quantityAmount) {
+        value = parseInt(quantityAmount.value, 10);
+
+        value = isNaN(value) ? 0 : value;
+        if (value > 0) value--;
+
+        quantityAmount.value = value;
+    }
+    init();
+
+    var value1,
+    quantity1 = document.getElementsByClassName('quantity-container1');
+
+		function createBindings1(quantityContainer1) {
+      var quantityAmount1 = quantityContainer1.getElementsByClassName('quantity-amount1')[0];
+      var increase1 = quantityContainer1.getElementsByClassName('increase1')[0];
+      var decrease1 = quantityContainer1.getElementsByClassName('decrease1')[0];
+      increase1.addEventListener('click', function (e) { increaseValue1(e, quantityAmount1); });
+      decrease1.addEventListener('click', function (e) { decreaseValue1(e, quantityAmount1); });
+    }
+
+    function init1() {
+        for (var i = 0; i < quantity1.length; i++ ) {
+					createBindings1(quantity1[i]);
+        }
+    };
+   
+    
+    function increaseValue1(event, quantityAmount1) {
+        value1 = parseInt(quantityAmount1.value, 10);
+
+        console.log(quantityAmount1, quantityAmount1.value);
+        
+        value1 = isNaN(value1) ? 0 : value1;
+        
+        if (value1 ==0)value1++;
+        quantityAmount1.value = value1;
+        
+      
+    }
+
+    function decreaseValue1(event, quantityAmount1) {
+        value1 = parseInt(quantityAmount1.value, 10);
+
+        value1 = isNaN(value) ? 0 : value1;
+        if (value1 > 0) value1--;
+
+        quantityAmount1.value = value1;
+    }
+    init1();
+
+     var value4,
+    quantity4 = document.getElementsByClassName('quantity-container4');
+
+		function createBindings4(quantityContainer4) {
+      var quantityAmount4 = quantityContainer4.getElementsByClassName('quantity-amount4')[0];
+      var increase4 = quantityContainer4.getElementsByClassName('increase4')[0];
+      var decrease4 = quantityContainer4.getElementsByClassName('decrease4')[0];
+      increase4.addEventListener('click', function (e) { increaseValue4(e, quantityAmount4); });
+      decrease4.addEventListener('click', function (e) { decreaseValue4(e, quantityAmount4); });
+    }
+
+    function init4() {
+        for (var i = 0; i < quantity4.length; i++ ) {
+					createBindings4(quantity4[i]);
+        }
+    };
+   
+    
+    function increaseValue4(event, quantityAmount4) {
+        value4 = parseInt(quantityAmount4.value, 10);
+
+        console.log(quantityAmount4, quantityAmount4.value);
+        
+        value4 = isNaN(value4) ? 0 : value4;
+       
+
+        if (value4 <4)
+          if(document.getElementById("husband").value==0)
+        value4++;
+        quantityAmount4.value = value4;
+        
+      
+    }
+
+    function decreaseValue4(event, quantityAmount4) {
+        value4 = parseInt(quantityAmount4.value, 10);
+
+        value4 = isNaN(value) ? 0 : value4
+        if (value4 > 0) value4--;
+
+        quantityAmount4.value = value4;
+    }
+    init4();
+
+      var valuehus,
+    quantityhus = document.getElementsByClassName('quantity-containerhus');
+
+		function createBindingshus(quantityContainerhus) {
+      var quantityAmounthus = quantityContainerhus.getElementsByClassName('quantity-amounthus')[0];
+      var increasehus = quantityContainerhus.getElementsByClassName('increasehus')[0];
+      var decreasehus = quantityContainerhus.getElementsByClassName('decreasehus')[0];
+      increasehus.addEventListener('click', function (e) { increaseValuehus(e, quantityAmounthus); });
+      decreasehus.addEventListener('click', function (e) { decreaseValuehus(e, quantityAmounthus); });
+    }
+
+    function inithus() {
+        for (var i = 0; i < quantityhus.length; i++ ) {
+					createBindingshus(quantityhus[i]);
+        }
+    };
+   
+    
+    function increaseValuehus(event, quantityAmounthus) {
+        valuehus = parseInt(quantityAmounthus.value, 10);
+
+        console.log(quantityAmounthus, quantityAmounthus.value);
+        
+        valuehus = isNaN(valuehus) ? 0 : valuehus;
+       
+
+        if (valuehus ==0)
+          if(document.getElementById("wife").value==0)
+        valuehus++;
+        quantityAmounthus.value = valuehus;
+        
+      
+    }
+
+    function decreaseValuehus(event, quantityAmounthus) {
+        valuehus = parseInt(quantityAmounthus.value, 10);
+
+        valuehus = isNaN(value) ? 0 : valuehus;
+        if (valuehus > 0) valuehus--;
+
+        quantityAmounthus.value = valuehus;
+    }
+    inithus();
+
+    
+    
+
+    
+    
+
+
+
+</script>
+
+
+  
+  
+
+
+    

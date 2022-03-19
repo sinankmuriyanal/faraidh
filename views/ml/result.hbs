@@ -1,0 +1,90 @@
+  {{!--   --}}
+  <section id="features" class="features"></section>
+   <section id="values" class="values">
+
+      <div class="container" data-aos="fade-up">
+
+        <header class="section-header">
+          
+          <p>Faraid Calculator Result</p>
+        </header>
+  <div class="all">
+ <form action="/tryagain/ml" method="post" enctype="multipart/form-data">
+                    
+
+    
+    
+        
+           <div style="overflow: auto;">
+             <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">പേര്</th>
+                    <th scope="col">എണ്ണം</th>
+                    <th scope="col">ശതമാനം</th>
+                    <th scope="col">വിഹിതം</th>
+                    <th scope="col">രൂപ</th>
+                    <th scope="col">ഒരാള്‍ക്ക്</th>
+                  <th scope="col">ഒരാള്‍ക്കുള്ള രൂപ</th>
+                  </tr>
+                </thead>
+                <tbody>
+                     {{#each items}}
+                      {{#if isdefined}}
+                  <tr>
+                    <th scope="row">{{this.name}}</th>
+                    <td>{{this.number}}</td>
+                    <td>{{this.share}} %</td>
+                    <td>{{this.fraction}}</td>
+                     <td>{{this.rupeeget}}</td>
+                     <td>{{this.perhead}}%</td>
+                      <td>{{this.perheadrupees}}</td>
+                  </tr>
+                   {{/if}}
+                  {{/each}}
+                  
+                </tbody>
+              </table>
+            </div>
+
+          <div class="row">
+          <div class="col-lg-12" style="border: black 2px">
+              <h1 style="color: rgb(3, 6, 168); text-align: left;">
+                            വിശദീകരണം
+                        </h1>
+          
+                    {{#each exp}}
+                <h6 style="color: #012970; font-size: larger;">*{{this}}</h6>
+                {{/each}}
+                 
+          </div>
+        </div>
+            
+   
+
+                <button id="btn3" class="btn btn-primary" style="float: left;margin-top: 20px;" onclick="print()">print this result</button>
+                <button id="btn3" type="submit" class="btn btn-success mt-4" style="float: right;">try again</button>
+        
+                
+                
+                </form>
+
+                
+                </div>
+        
+
+      </div>
+      
+    </section><!-- End F.A.Q Section -->
+    
+      
+        <div class="container" data-aos="fade-up" >
+   
+    <section id="features" class="features"></section>
+    <section id="features" class="features"></section>
+
+    <script type="text/javascripts">
+      function print(){
+        window.print();
+      }
+    </script>
