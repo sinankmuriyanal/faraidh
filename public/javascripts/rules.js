@@ -782,11 +782,11 @@ module.exports={
                 if(number.son==0 && number.grandSon==0){
                     if(number.fullSister>=1 && number.fullBrother==0){
                         fullSistergets=balance;
-                        exp.push("Full sister gets the all balance being with full sister, and one of daughter or granddaughter")
+                        exp.push("Full sister gets the all balance being with  daughter or granddaughter")
                     }else if(number.paternalSister>=1 && number.paternalBrother==0){
                             if(number.fullSister==0 && number.fullBrother==0){
                                 paternalSistergets=balance;
-                                exp.push("Paternal sister gets the all balance being with full sister, and one of daughter or granddaughter")
+                                exp.push("Paternal sister gets the all balance being with daughter or granddaughter")
                             }
                        
                     }
