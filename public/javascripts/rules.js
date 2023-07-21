@@ -511,7 +511,7 @@ module.exports={
                             var shares=parseFloat(shares);
                             console.log("okd");
                             
-                            var othergets=fathergets+mothergets+songets+daughtergets+grandMothergets+grandSongets+grandDaughtergets+maternalBrothergets+maternalSistergets+wifegets+husbandgets;
+                            var othergets=fathergets+mothergets+songets+daughtergets+grandMothergets+grandMother2gets+grandSongets+grandDaughtergets+maternalBrothergets+maternalSistergets+wifegets+husbandgets;
                             var othergets=parseFloat(othergets);
                             fullBrothergets=(100-othergets)/shares*number.fullBrother*2;
                            
@@ -529,7 +529,7 @@ module.exports={
                         }else if(((100-othergets)/3) > ((1/6)*100) && ((100-othergets)/3)> grandFathergets){
                                 
                                 grandFathergets=((100-othergets)/3);
-                                var othergets=fathergets+mothergets+songets+daughtergets+grandMothergets+grandSongets+grandDaughtergets+maternalBrothergets+maternalSistergets+wifegets+husbandgets;
+                                var othergets=fathergets+mothergets+songets+daughtergets+grandMothergets+grandMother2gets+grandSongets+grandDaughtergets+maternalBrothergets+maternalSistergets+wifegets+husbandgets;
                                 var othergets=parseFloat(othergets);
                                 var shares=((number.fullBrother+number.paternalBrother)*2) + number.fullSister+number.paternalSister;
                                 var shares=parseFloat(shares);
@@ -565,7 +565,7 @@ module.exports={
                         var shares=parseFloat(shares);
                         console.log("okd");
                         
-                        var othergets=fathergets+mothergets+songets+daughtergets+grandMothergets+grandSongets+grandDaughtergets+maternalBrothergets+maternalSistergets+wifegets+husbandgets;
+                        var othergets=fathergets+mothergets+songets+daughtergets+grandMothergets+grandMother2gets+grandSongets+grandDaughtergets+maternalBrothergets+maternalSistergets+wifegets+husbandgets;
                         var othergets=parseFloat(othergets);
                         paternalBrothergets=(100-othergets)/shares*number.paternalBrother*2;
                        
@@ -583,7 +583,7 @@ module.exports={
                         }else if(((100-othergets)/3) > ((1/6)*100) && ((100-othergets)/3)> grandFathergets){
                             
                             grandFathergets=((100-othergets)/3);
-                            var othergets=fathergets+mothergets+songets+daughtergets+grandMothergets+grandSongets+grandDaughtergets+maternalBrothergets+maternalSistergets+wifegets+husbandgets;
+                            var othergets=fathergets+mothergets+songets+daughtergets+grandMothergets+grandMother2gets+grandSongets+grandDaughtergets+maternalBrothergets+maternalSistergets+wifegets+husbandgets;
                             var othergets=parseFloat(othergets);
                              var shares=((number.paternalBrother*2)+number.paternalSister);
                             var shares=parseFloat(shares);
@@ -618,7 +618,7 @@ module.exports={
                         var shares=((number.paternalBrother+number.grandFather+number.fullBrother)*2) + number.paternalSister+number.fullSister;
                         var shares=parseFloat(shares);
 
-                            var othergets=fathergets+mothergets+songets+daughtergets+grandMothergets+grandSongets+grandDaughtergets+maternalBrothergets+maternalSistergets+wifegets+husbandgets;
+                            var othergets=fathergets+mothergets+songets+daughtergets+grandMothergets+grandMother2gets+grandSongets+grandDaughtergets+maternalBrothergets+maternalSistergets+wifegets+husbandgets;
                             var othergets=parseFloat(othergets);
                             console.log(othergets);
                             fullBrothergets=(100-othergets)/shares*number.fullBrother*2;
@@ -641,7 +641,7 @@ module.exports={
 
                               
                                 
-                                var othergets=fathergets+mothergets+songets+daughtergets+grandMothergets+grandSongets+grandDaughtergets+maternalBrothergets+maternalSistergets+wifegets+husbandgets;
+                                var othergets=fathergets+mothergets+songets+daughtergets+grandMothergets+grandMother2gets+grandSongets+grandDaughtergets+maternalBrothergets+maternalSistergets+wifegets+husbandgets;
                                 var othergets=parseFloat(othergets);
                                 var shares=((number.fullBrother+number.paternalBrother)*2) + number.fullSister+number.paternalSister;
                                 var shares=parseFloat(shares);
@@ -978,6 +978,13 @@ if(number.fullSister>=2 && number.paternalSister>=2){
             rupeeget.push(((rupees[i]/100)*number.rupees).toFixed(1));
           }
         
+
+
+
+
+
+
+          
         
         
         var getstotal=fathergets+mothergets+wifegets+husbandgets+songets+daughtergets+grandFathergets+grandMothergets+grandMother2gets
