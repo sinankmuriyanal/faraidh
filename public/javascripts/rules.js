@@ -717,16 +717,32 @@ module.exports={
                     exp.push("Paternal brother shares the all balance with paternal sister in a the ratio of 2:1")
                 }
             }
-            if((((number.son==0 && number.grandSon==0) && (number.father==0 &&  number.grandFather==0))
-             &&(number.fullBrother==0)) && number.paternalBrother==0) {
-                if(number.nephew2>=1 ) {
-                    nephew2gets=balance;
-                    exp.push("Full nephew  gets the all balance")
+          
+            if (
+                (((number.son == 0 && number.grandSon == 0) && (number.father == 0 && number.grandFather == 0)) &&
+                (number.fullBrother == 0)) && number.paternalBrother == 0
+                && !(
+                    (number.paternalSister >= 1 && number.daughter >= 1) || 
+                    (number.paternalSister >= 1 && number.grandDaughter >= 1) || 
+                    ((number.fullSister >= 1 && number.daughter >= 1) || 
+                    (number.fullSister >= 1 && number.grandDaughter >= 1))
+                )
+            ) {
+                if (number.nephew2 >= 1) {
+                    nephew2gets = balance;
+                    exp.push("Full nephew gets the all balance");
                 }
             }
+            
 
             if((((number.son==0 && number.grandSon==0) && (number.father==0 &&  number.grandFather==0))
-            &&(number.fullBrother==0)) && number.paternalBrother==0) {
+            &&(number.fullBrother==0)) && number.paternalBrother==0
+            && !(
+                (number.paternalSister >= 1 && number.daughter >= 1) || 
+                (number.paternalSister >= 1 && number.grandDaughter >= 1) || 
+                ((number.fullSister >= 1 && number.daughter >= 1) || 
+                (number.fullSister >= 1 && number.grandDaughter >= 1))
+            )) {
                if(number.nephew2==0 && number.nephew1>=1) {
                    nephew1gets=balance;
                    exp.push("paternal nephew gets the all balance")
@@ -734,7 +750,13 @@ module.exports={
            }
 
            if((((number.son==0 && number.grandSon==0) && (number.father==0 &&  number.grandFather==0))
-            &&(number.fullBrother==0)) && number.paternalBrother==0) {
+            &&(number.fullBrother==0)) && number.paternalBrother==0
+            && !(
+                (number.paternalSister >= 1 && number.daughter >= 1) || 
+                (number.paternalSister >= 1 && number.grandDaughter >= 1) || 
+                ((number.fullSister >= 1 && number.daughter >= 1) || 
+                (number.fullSister >= 1 && number.grandDaughter >= 1))
+            )) {
                if(number.nephew2==0 && number.nephew1==0) {
                 if(number.uncle2>=1 ) {
                     uncle2gets=balance;
@@ -744,7 +766,13 @@ module.exports={
            }
 
            if((((number.son==0 && number.grandSon==0) && (number.father==0 &&  number.grandFather==0))
-           &&(number.fullBrother==0)) && number.paternalBrother==0) {
+           &&(number.fullBrother==0)) && number.paternalBrother==0
+           && !(
+            (number.paternalSister >= 1 && number.daughter >= 1) || 
+            (number.paternalSister >= 1 && number.grandDaughter >= 1) || 
+            ((number.fullSister >= 1 && number.daughter >= 1) || 
+            (number.fullSister >= 1 && number.grandDaughter >= 1))
+        )) {
               if(number.nephew2==0 && number.nephew1==0) {
                if(number.uncle2==0 && number.uncle1>=1) {
                    uncle1gets=balance;
@@ -754,7 +782,13 @@ module.exports={
           }
 
           if((((number.son==0 && number.grandSon==0) && (number.father==0 &&  number.grandFather==0))
-           &&(number.fullBrother==0)) && number.paternalBrother==0) {
+           &&(number.fullBrother==0)) && number.paternalBrother==0
+           && !(
+            (number.paternalSister >= 1 && number.daughter >= 1) || 
+            (number.paternalSister >= 1 && number.grandDaughter >= 1) || 
+            ((number.fullSister >= 1 && number.daughter >= 1) || 
+            (number.fullSister >= 1 && number.grandDaughter >= 1))
+        )) {
               if(number.nephew2==0 && number.nephew1==0) {
                if(number.uncle2==0 && number.uncle1==0) {
                 if(number.cousin2>=1 ) {
@@ -766,7 +800,13 @@ module.exports={
           }
 
           if((((number.son==0 && number.grandSon==0) && (number.father==0 &&  number.grandFather==0))
-           &&(number.fullBrother==0)) && number.paternalBrother==0) {
+           &&(number.fullBrother==0)) && number.paternalBrother==0
+           && !(
+            (number.paternalSister >= 1 && number.daughter >= 1) || 
+            (number.paternalSister >= 1 && number.grandDaughter >= 1) || 
+            ((number.fullSister >= 1 && number.daughter >= 1) || 
+            (number.fullSister >= 1 && number.grandDaughter >= 1))
+        )) {
               if(number.nephew2==0 && number.nephew1==0) {
                if(number.uncle2==0 && number.uncle1==0) {
                 if(number.cousin2==0 && number.cousin1>=1) {
@@ -867,31 +907,31 @@ if((number.father==1 || number.son>=1 || number.grandSon>=1 || number.fullBrothe
     exp.push("Paternal brother gets blocked by father or son or full brother")
 }
 
-if((number.father==1 || number.son>=1 || number.grandSon>=1 || number.fullBrother>=1  || number.paternalBrother>=1) && number.nephew2>=1) {
+if((number.father==1 || number.son>=1 || number.grandSon>=1 || number.fullBrother>=1  || number.paternalBrother>=1 || (number.paternalSister>=1 && number.daughter>=1) || (number.paternalSister>=1 && number.grandDaughter>=1)|| (number.fullSister>=1 && number.daughter>=1)|| (number.fullSister>=1 && number.grandDaughter>=1)) && number.nephew2>=1) {
     nephew2gets=0;
     exp.push("Full nephew gets blocked by father or son or brothers")
 }
 
-if((number.father==1 || number.son>=1 || number.grandSon>=1 || number.fullBrother>=1  || number.paternalBrother>=1 || number.nephew2>=1) && number.nephew1>=1) {
+if((number.father==1 || number.son>=1 || number.grandSon>=1 || number.fullBrother>=1  || number.paternalBrother>=1 || number.nephew2>=1 || (number.paternalSister>=1 && number.daughter>=1) || (number.paternalSister>=1 && number.grandDaughter>=1)|| (number.fullSister>=1 && number.daughter>=1)|| (number.fullSister>=1 && number.grandDaughter>=1)) && number.nephew1>=1) {
     nephew1gets=0;
     exp.push("Paternal nephew gets blocked by father or son or brothers or full cousin")
 }
-if((number.father==1 || number.son>=1 || number.grandSon>=1 || number.fullBrother>=1  || number.paternalBrother>=1 || number.nephew2>=1 || number.nephew1>=1) && number.uncle2>=1) {
+if((number.father==1 || number.son>=1 || number.grandSon>=1 || number.fullBrother>=1  || number.paternalBrother>=1 || number.nephew2>=1 || number.nephew1>=1 || (number.paternalSister>=1 && number.daughter>=1) || (number.paternalSister>=1 && number.grandDaughter>=1)|| (number.fullSister>=1 && number.daughter>=1)|| (number.fullSister>=1 && number.grandDaughter>=1)) && number.uncle2>=1) {
     uncle2gets=0;
     exp.push("Uncles gets blocked by father or son or brothers or nephews")
 }
 if((number.father==1 || number.son>=1 || number.grandSon>=1 || number.fullBrother>=1  || number.paternalBrother>=1 
-    || number.nephew2>=1 || number.nephew1>=1 || number.uncle2>=1) && number.uncle1>=1) {
+    || number.nephew2>=1 || number.nephew1>=1 || number.uncle2>=1 || (number.paternalSister>=1 && number.daughter>=1) || (number.paternalSister>=1 && number.grandDaughter>=1)|| (number.fullSister>=1 && number.daughter>=1)|| (number.fullSister>=1 && number.grandDaughter>=1)) && number.uncle1>=1) {
     uncle1gets=0;
     exp.push("Paternal uncle gets blocked by father or son or brothers or  nephews and full uncle")
 }
 if((number.father==1 || number.son>=1 || number.grandSon>=1 || number.fullBrother>=1  || number.paternalBrother || number.nephew2 
-    || number.nephew2>=1 || number.uncle1>=1 ) && number.cousin2>=1) {
+    || number.nephew2>=1 || number.uncle1>=1 || (number.paternalSister>=1 && number.daughter>=1) || (number.paternalSister>=1 && number.grandDaughter>=1)|| (number.fullSister>=1 && number.daughter>=1)|| (number.fullSister>=1 && number.grandDaughter>=1) ) && number.cousin2>=1) {
         cousin2gets=0;
     exp.push("Full cousin gets blocked by father or son or brothers or nephews or uncles")
 }
 if((number.father==1 || number.son>=1 || number.grandSon>=1 || number.fullBrother>=1  || number.paternalBrother || number.nephew2 
-    || number.nephew1>=1 || number.uncle1>=1 || number.nephew2>=1 || number.cousin2>=1) && number.cousin1>=1) {
+    || number.nephew1>=1 || number.uncle1>=1 || number.nephew2>=1 || number.cousin2>=1 || (number.paternalSister>=1 && number.daughter>=1) || (number.paternalSister>=1 && number.grandDaughter>=1)|| (number.fullSister>=1 && number.daughter>=1)|| (number.fullSister>=1 && number.grandDaughter>=1)) && number.cousin1>=1) {
         cousin1gets=0;
     exp.push("Paternal cousin gets blocked by father or son or brothers or nephews or uncles or full cousin")
 }
